@@ -1,0 +1,237 @@
+INFORME META ADS: PANICHELLA
+Fecha: 2025-12-12
+============================================================
+
+## GLOSARIO - QUE SIGNIFICA CADA METRICA
+============================================================
+
+SCORE (Conversiones Ponderadas)
+   Qué es: Un número que representa el VALOR TOTAL de todas las
+   acciones que generó el anuncio, no solo la cantidad.
+   
+   Cómo se calcula:
+   - Mensajes iniciados: valen 1.0 (contacto directo = alto valor)
+   - Contactos de mensaje: valen 1.0
+   - Resultados de Meta: valen 1.0
+   - Clics en enlace: valen 0.15 (solo muestran interés)
+   - Visitas al perfil IG: valen 0.3
+   
+   Ejemplo: Un anuncio con 5 mensajes + 20 clics = 5×1 + 20×0.15 = 8 score
+
+------------------------------------------------------------
+
+CPA (Costo Por Adquisición)
+   Qué es: Cuánto pagaste en promedio por cada conversión.
+   Fórmula: Gasto Total ÷ Score
+   
+   Ejemplo: Gastaste $10,000 y tienes score de 8 = CPA de $1,250
+   
+   Interpretación:
+   - CPA BAJO = BUENO (pagas poco por cada resultado)
+   - CPA ALTO = MALO (pagas mucho por cada resultado)
+
+------------------------------------------------------------
+
+MEDIANA CPA
+   Qué es: El CPA 'del medio' de todos tus anuncios.
+   Si ordenas todos los CPA de menor a mayor, la mediana es el del centro.
+   
+   Para qué sirve: Es tu PUNTO DE REFERENCIA.
+   - Si un anuncio tiene CPA < mediana = es más eficiente que la mayoría
+   - Si un anuncio tiene CPA > mediana = es menos eficiente que la mayoría
+
+------------------------------------------------------------
+
+EFICIENCIA (comparación con mediana)
+   MUY EFICIENTE: CPA es menos del 70% de la mediana (excelente)
+   EFICIENTE: CPA es menor que la mediana (bueno)
+   NORMAL: CPA es hasta 50% mayor que mediana (aceptable)
+   CARO: CPA es más de 50% mayor que mediana (revisar)
+
+------------------------------------------------------------
+
+ACTIVIDAD (estado reciente)
+   ACTIVO: El anuncio generó conversiones en los últimos 7 días
+   GASTANDO: Gastó dinero en 7 días pero no generó conversiones
+   INACTIVO: No gastó ni convirtió en los últimos 7 días
+
+============================================================
+
+## A: RESUMEN DE LA CUENTA (últimos 30 días)
+============================================================
+
+Gasto Total: $121,000.23 ARS
+Conversiones Totales (Score): 63.0
+CPA Promedio: $1,919.12
+CPA Mediana: $2,233.43
+
+Total de anuncios: 13
+Anuncios con conversiones: 9
+
+Estado de los anuncios (últimos 7 días):
+   ACTIVOS (convirtiendo): 8
+   GASTANDO (sin convertir): 4
+   INACTIVOS: 1
+
+
+## B: RANKINGS - LOS MEJORES ANUNCIOS
+============================================================
+
+[TROFEO] TOP 5 POR IMPACTO (más conversiones)
+----------------------------------------
+  Proyecto “Buen Viaje”...
+     Score: 38.0 | CPA: $1409 | ACTIVO
+  Así transformamos un espacio un.....
+     Score: 16.3 | CPA: $2157 | ACTIVO
+  Descubrí cómo transformamos...
+     Score: 4.5 | CPA: $2233 | ACTIVO
+  2025-08-PresentaciónOficina-V1.0...
+     Score: 2.8 | CPA: $4693 | GASTANDO
+  Bienvenidos al lugar donde sucede la magia...
+     Score: 0.8 | CPA: $4814 | ACTIVO
+
+[DINERO] TOP 5 POR GASTO (más inversión)
+----------------------------------------
+  Proyecto “Buen Viaje”...
+     Gasto: $53,465 | CPA: $1409
+  Así transformamos un espacio un.....
+     Gasto: $35,157 | CPA: $2157
+  2025-08-PresentaciónOficina-V1.0...
+     Gasto: $12,907 | CPA: $4693
+  Descubrí cómo transformamos...
+     Gasto: $10,162 | CPA: $2233
+  Bienvenidos al lugar donde sucede la magia...
+     Gasto: $3,610 | CPA: $4814
+
+[RAYO] TOP 5 POR EFICIENCIA (menor CPA)
+       (Solo anuncios con al menos 1 conversión)
+----------------------------------------
+  Proyecto “Buen Viaje”...
+     CPA: $1409 (-37% vs mediana) | Score: 38.0
+  Así transformamos un espacio un.....
+     CPA: $2157 (-3% vs mediana) | Score: 16.3
+  Descubrí cómo transformamos...
+     CPA: $2233 (= mediana) | Score: 4.5
+  2025-08-PresentaciónOficina-V1.0...
+     CPA: $4693 (+110% vs mediana) | Score: 2.8
+
+
+## C: ANUNCIOS PARA ESCALAR (DUPLICAR)
+============================================================
+
+QUE SIGNIFICA 'DUPLICAR UN ANUNCIO':
+   No es copiar el texto o imagen. Es crear un NUEVO ANUNCIO
+   usando los mismos parámetros de segmentación y configuración
+   del anuncio exitoso, pero con creativos frescos (nueva imagen,
+   video o copy) que no esté actualmente en ninguna campaña.
+
+   Esto permite:
+   - Escalar el éxito sin saturar la audiencia con el mismo creativo
+   - Probar nuevas piezas con una configuración que ya funciona
+   - Aumentar el alcance sin competir contigo mismo
+
+------------------------------------------------------------
+
+CRITERIOS DE SELECCIÓN:
+   1. Score >= 10 (volumen significativo de conversiones)
+   2. CPA <= $2680 (máximo 120% de la mediana $2233)
+   3. Actividad reciente (no anuncios abandonados)
+
+ENCONTRAMOS 2 ANUNCIO(S) PARA ESCALAR:
+
+==================================================
+[ESCALAR] #1: Proyecto “Buen Viaje”
+==================================================
+
+   MÉTRICAS DEL ANUNCIO:
+   - Score: 38.0 conversiones ponderadas
+   - CPA: $1409 (mediana: $2233)
+   - Eficiencia: EXCELENTE (63% de la mediana)
+   - Gasto acumulado: $53,465
+   - Actividad: ACTIVO
+
+   POR QUÉ ESCALAR ESTE ANUNCIO:
+   - ALTO VOLUMEN: 38 conversiones ponderadas, es top performer
+   - MUY EFICIENTE: CPA $1409 es 37% menor que la mediana ($2233)
+   - SIGUE ACTIVO: Generó 6.8 conversiones en los últimos 7 días
+
+   CÓMO ESCALARLO:
+   1. Ve a Ads Manager y selecciona este anuncio
+   2. Click en 'Duplicar' > 'Duplicar en mismo conjunto'
+   3. En el nuevo anuncio, CAMBIA SOLO el creativo:
+      - Nueva imagen/video que no esté en otras campañas
+      - Puedes probar nuevo copy también
+   4. Mantén la misma audiencia y configuración
+   5. Empieza con presupuesto igual al original
+
+==================================================
+[ESCALAR] #2: Así transformamos un espacio un..
+==================================================
+
+   MÉTRICAS DEL ANUNCIO:
+   - Score: 16.3 conversiones ponderadas
+   - CPA: $2157 (mediana: $2233)
+   - Eficiencia: BUENA (97% de la mediana)
+   - Gasto acumulado: $35,157
+   - Actividad: ACTIVO
+
+   POR QUÉ ESCALAR ESTE ANUNCIO:
+   - BUEN VOLUMEN: 16 conversiones demuestran que funciona
+   - EFICIENTE: CPA $2157 está por debajo de la mediana ($2233)
+   - SIGUE ACTIVO: Generó 0.6 conversiones en los últimos 7 días
+
+   CÓMO ESCALARLO:
+   1. Ve a Ads Manager y selecciona este anuncio
+   2. Click en 'Duplicar' > 'Duplicar en mismo conjunto'
+   3. En el nuevo anuncio, CAMBIA SOLO el creativo:
+      - Nueva imagen/video que no esté en otras campañas
+      - Puedes probar nuevo copy también
+   4. Mantén la misma audiencia y configuración
+   5. Empieza con presupuesto igual al original
+
+
+## D: ACCIONES URGENTES
+============================================================
+
+[ALERTA] REVISAR: 2025-08-PresentaciónOficina-V1.0
+   Por qué: CPA $4,693 es 2.1× la mediana ($2233)
+   Detalle: Sigue gastando pero sin generar conversiones recientes
+   Acción: Bajar puja 20% o pausar si no mejora en 3 días
+
+
+
+## E: DETALLE DE TODOS LOS ANUNCIOS
+============================================================
+
+Anuncio | Score | CPA | Eficiencia | Actividad
+----------------------------------------------------------------------
+Proyecto “Buen Viaje”... | 38.0 | $1409 | MUY_EFICIENTE | ACTIVO
+Así transformamos un espa... | 16.3 | $2157 | EFICIENTE | ACTIVO
+Descubrí cómo transformam... | 4.5 | $2233 | EFICIENTE | ACTIVO
+2025-08-PresentaciónOfici... | 2.8 | $4693 | CARO | GASTANDO
+Bienvenidos al lugar dond... | 0.8 | $4814 | CARO | ACTIVO
+Un adelanto del nuevo pro... | 0.3 | $3360 | CARO | ACTIVO
+Te presentamos al team de... | 0.1 | $19483 | CARO | ACTIVO
+Texturas, colores y mater... | 0.1 | $765 | MUY_EFICIENTE | ACTIVO
+Si te interesa lo que hac... | 0.1 | $1159 | MUY_EFICIENTE | ACTIVO
+¿Querés conocer nuestro p... | 0.0 | N/A | SIN_DATOS | GASTANDO
+¿Cómo transformar un depa... | 0.0 | N/A | SIN_DATOS | INACTIVO
+Elegir un revestimiento, ... | 0.0 | N/A | SIN_DATOS | GASTANDO
+Somos un estudio de arqui... | 0.0 | N/A | SIN_DATOS | GASTANDO
+
+
+## F: CONTEXTO HISTÓRICO POR PERÍODO
+============================================================
+
+SCORE TOTAL POR MES:
+----------------------------------------
+     SEP: ████████████████████   69.6 (↑ sobre promedio)
+     OCT: ████████░░░░░░░░░░░░   30.4 (↓ bajo promedio)
+     NOV: ██████████████████░░   65.0 (↑ sobre promedio)
+
+   Promedio mensual: 55.0
+   Mejor mes: 69.6
+   Peor mes: 30.4
+
+TENDENCIA GENERAL:
+   La cuenta se mantuvo ESTABLE (variación de -7%)

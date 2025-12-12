@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "cliente": "Panichella",
+    "fecha": "2025-12-12",
+    "version": "2.0"
+  },
+  "resumen": {
+    "gasto_total": 121000.23,
+    "score_total": 63.05,
+    "cpa_global": 1919.12,
+    "mediana_cpa": 2233.43,
+    "total_anuncios": 13,
+    "con_conversiones": 9,
+    "actividad": {
+      "activos": 8,
+      "gastando": 4,
+      "inactivos": 1,
+      "sin_datos_7d": 0
+    },
+    "eficiencia": {
+      "muy_eficientes": 3,
+      "eficientes": 2,
+      "normales": 0,
+      "caros": 4
+    }
+  },
+  "mediana_cpa": 2233.43,
+  "rankings": {
+    "impacto": [
+      {
+        "ad_name": "Proyecto “Buen Viaje”",
+        "score": 37.95,
+        "cpa": 1408.8166007905136,
+        "spend": 53464.59,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "Así transformamos un espacio un..",
+        "score": 16.3,
+        "cpa": 2156.8515337423314,
+        "spend": 35156.68,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "Descubrí cómo transformamos",
+        "score": 4.55,
+        "cpa": 2233.4307692307693,
+        "spend": 10162.11,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "2025-08-PresentaciónOficina-V1.0",
+        "score": 2.75,
+        "cpa": 4693.44,
+        "spend": 12906.96,
+        "actividad": "GASTANDO"
+      },
+      {
+        "ad_name": "Bienvenidos al lugar donde sucede la magia",
+        "score": 0.75,
+        "cpa": 4813.56,
+        "spend": 3610.17,
+        "actividad": "ACTIVO"
+      }
+    ],
+    "volumen": [
+      {
+        "ad_name": "Proyecto “Buen Viaje”",
+        "spend": 53464.59,
+        "cpa": 1408.8166007905136,
+        "score": 37.95
+      },
+      {
+        "ad_name": "Así transformamos un espacio un..",
+        "spend": 35156.68,
+        "cpa": 2156.8515337423314,
+        "score": 16.3
+      },
+      {
+        "ad_name": "2025-08-PresentaciónOficina-V1.0",
+        "spend": 12906.96,
+        "cpa": 4693.44,
+        "score": 2.75
+      },
+      {
+        "ad_name": "Descubrí cómo transformamos",
+        "spend": 10162.11,
+        "cpa": 2233.4307692307693,
+        "score": 4.55
+      },
+      {
+        "ad_name": "Bienvenidos al lugar donde sucede la magia",
+        "spend": 3610.17,
+        "cpa": 4813.56,
+        "score": 0.75
+      }
+    ],
+    "eficiencia": [
+      {
+        "ad_name": "Proyecto “Buen Viaje”",
+        "cpa": 1408.8166007905136,
+        "score": 37.95,
+        "spend": 53464.59,
+        "eficiencia": "MUY_EFICIENTE"
+      },
+      {
+        "ad_name": "Así transformamos un espacio un..",
+        "cpa": 2156.8515337423314,
+        "score": 16.3,
+        "spend": 35156.68,
+        "eficiencia": "EFICIENTE"
+      },
+      {
+        "ad_name": "Descubrí cómo transformamos",
+        "cpa": 2233.4307692307693,
+        "score": 4.55,
+        "spend": 10162.11,
+        "eficiencia": "EFICIENTE"
+      },
+      {
+        "ad_name": "2025-08-PresentaciónOficina-V1.0",
+        "cpa": 4693.44,
+        "score": 2.75,
+        "spend": 12906.96,
+        "eficiencia": "CARO"
+      }
+    ]
+  },
+  "duplicar": [
+    {
+      "nombre": "Proyecto “Buen Viaje”",
+      "score": 38.0,
+      "cpa": 1409.0,
+      "gasto": 53465.0,
+      "actividad": "ACTIVO",
+      "score_7d": 6.8,
+      "razones": [
+        "ALTO VOLUMEN: 38 conversiones ponderadas, es top performer",
+        "MUY EFICIENTE: CPA $1409 es 37% menor que la mediana ($2233)",
+        "SIGUE ACTIVO: Generó 6.8 conversiones en los últimos 7 días"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    },
+    {
+      "nombre": "Así transformamos un espacio un..",
+      "score": 16.3,
+      "cpa": 2157.0,
+      "gasto": 35157.0,
+      "actividad": "ACTIVO",
+      "score_7d": 0.6,
+      "razones": [
+        "BUEN VOLUMEN: 16 conversiones demuestran que funciona",
+        "EFICIENTE: CPA $2157 está por debajo de la mediana ($2233)",
+        "SIGUE ACTIVO: Generó 0.6 conversiones en los últimos 7 días"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    }
+  ],
+  "acciones_urgentes": [
+    {
+      "tipo": "REVISAR",
+      "nombre": "2025-08-PresentaciónOficina-V1.0",
+      "razon": "CPA $4,693 es 2.1× la mediana ($2233)",
+      "accion": "Bajar puja 20% o pausar si no mejora en 3 días"
+    }
+  ],
+  "anuncios": [
+    {
+      "nombre": "Proyecto “Buen Viaje”",
+      "score": 37.95,
+      "cpa": 1408.82,
+      "gasto": 53464.59,
+      "eficiencia": "MUY_EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 6.8,
+      "gasto_7d": 18086.86
+    },
+    {
+      "nombre": "Así transformamos un espacio un..",
+      "score": 16.3,
+      "cpa": 2156.85,
+      "gasto": 35156.68,
+      "eficiencia": "EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 0.6,
+      "gasto_7d": 4899.53
+    },
+    {
+      "nombre": "Descubrí cómo transformamos",
+      "score": 4.55,
+      "cpa": 2233.43,
+      "gasto": 10162.11,
+      "eficiencia": "EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 3.05,
+      "gasto_7d": 4028.27
+    },
+    {
+      "nombre": "2025-08-PresentaciónOficina-V1.0",
+      "score": 2.75,
+      "cpa": 4693.44,
+      "gasto": 12906.96,
+      "eficiencia": "CARO",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 13.06
+    },
+    {
+      "nombre": "Bienvenidos al lugar donde sucede la magia",
+      "score": 0.75,
+      "cpa": 4813.56,
+      "gasto": 3610.17,
+      "eficiencia": "CARO",
+      "actividad": "ACTIVO",
+      "score_7d": 0.45,
+      "gasto_7d": 1048.94
+    },
+    {
+      "nombre": "Un adelanto del nuevo proyecto en el que estamos",
+      "score": 0.3,
+      "cpa": 3359.5,
+      "gasto": 1007.85,
+      "eficiencia": "CARO",
+      "actividad": "ACTIVO",
+      "score_7d": 0.15,
+      "gasto_7d": 45.43
+    },
+    {
+      "nombre": "Te presentamos al team de arquitectura interior que...",
+      "score": 0.15,
+      "cpa": 19482.73,
+      "gasto": 2922.41,
+      "eficiencia": "CARO",
+      "actividad": "ACTIVO",
+      "score_7d": 0.15,
+      "gasto_7d": 1172.76
+    },
+    {
+      "nombre": "Si te interesa lo que hacemos...",
+      "score": 0.15,
+      "cpa": 1159.0,
+      "gasto": 173.85,
+      "eficiencia": "MUY_EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 0.15,
+      "gasto_7d": 173.85
+    },
+    {
+      "nombre": "Texturas, colores y materiales para inspirar tu próximo espacio.",
+      "score": 0.15,
+      "cpa": 765.13,
+      "gasto": 114.77,
+      "eficiencia": "MUY_EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 0.15,
+      "gasto_7d": 114.77
+    },
+    {
+      "nombre": "¿Querés conocer nuestro proceso de trabajo?",
+      "score": 0.0,
+      "cpa": null,
+      "gasto": 850.49,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 36.12
+    },
+    {
+      "nombre": "¿Cómo transformar un departamento nuevo en un hogar con identidad?",
+      "score": 0.0,
+      "cpa": null,
+      "gasto": 0.0,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "INACTIVO",
+      "score_7d": 0.0,
+      "gasto_7d": 0.0
+    },
+    {
+      "nombre": "Elegir un revestimiento, una tela o un mármol no es solo cuestión de gusto.",
+      "score": 0.0,
+      "cpa": null,
+      "gasto": 597.49,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 597.49
+    },
+    {
+      "nombre": "Somos un estudio de arquitectura interior que sabe explorar la funcionalidad de formas creativas.",
+      "score": 0.0,
+      "cpa": null,
+      "gasto": 32.86,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 32.86
+    }
+  ],
+  "historico": [
+    {
+      "periodo": "nov",
+      "score": 65.05
+    },
+    {
+      "periodo": "oct",
+      "score": 30.35
+    },
+    {
+      "periodo": "sep",
+      "score": 69.6
+    }
+  ],
+  "glosario": {
+    "score": {
+      "nombre": "Score (Conversiones Ponderadas)",
+      "descripcion": "Valor total de acciones: mensajes (1.0), clics (0.15), visitas IG (0.3)",
+      "interpretacion": "Mayor score = mejor rendimiento"
+    },
+    "cpa": {
+      "nombre": "CPA (Costo Por Adquisición)",
+      "descripcion": "Gasto ÷ Score = cuánto pagas por cada conversión",
+      "interpretacion": "Menor CPA = más eficiente"
+    },
+    "mediana_cpa": {
+      "nombre": "Mediana CPA",
+      "descripcion": "El CPA del anuncio 'del medio' - tu punto de referencia",
+      "interpretacion": "CPA < mediana = mejor que promedio"
+    },
+    "eficiencia": {
+      "nombre": "Eficiencia",
+      "descripcion": "Comparación del CPA vs la mediana",
+      "categorias": {
+        "MUY_EFICIENTE": "CPA < 70% de mediana",
+        "EFICIENTE": "CPA < mediana",
+        "NORMAL": "CPA < 150% de mediana",
+        "CARO": "CPA > 150% de mediana"
+      }
+    },
+    "actividad": {
+      "nombre": "Actividad (últimos 7 días)",
+      "categorias": {
+        "ACTIVO": "Generó conversiones en 7 días",
+        "GASTANDO": "Gastó pero no convirtió en 7 días",
+        "INACTIVO": "Sin gasto ni conversiones en 7 días"
+      }
+    }
+  }
+}

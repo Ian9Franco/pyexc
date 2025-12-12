@@ -1,0 +1,24 @@
+# Directorio de dependencias de Node
+/node_modules
+
+# Directorio de construcción de Next.js (código compilado)
+/.next
+
+# Variables de entorno (archivos sensibles que no deben ser commiteados)
+.env
+.env.local
+.env.development
+.env.production
+
+# Archivos de depuración y registro
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Archivos de caché del SO (por ejemplo, macOS)
+.DS_Store
+
+# Directorios de caché de Vercel/Next.js/etc.
+.turbo
+/out
