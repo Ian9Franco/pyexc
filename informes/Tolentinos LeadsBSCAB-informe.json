@@ -1,0 +1,297 @@
+{
+  "meta": {
+    "cliente": "Tolentinos LeadsBSCAB",
+    "fecha": "2025-12-12",
+    "version": "2.0"
+  },
+  "resumen": {
+    "gasto_total": 208537.92,
+    "score_total": 391.85,
+    "cpa_global": 532.19,
+    "mediana_cpa": 760.94,
+    "total_anuncios": 7,
+    "con_conversiones": 6,
+    "actividad": {
+      "activos": 4,
+      "gastando": 3,
+      "inactivos": 0,
+      "sin_datos_7d": 0
+    },
+    "eficiencia": {
+      "muy_eficientes": 1,
+      "eficientes": 2,
+      "normales": 2,
+      "caros": 1
+    }
+  },
+  "mediana_cpa": 760.94,
+  "rankings": {
+    "impacto": [
+      {
+        "ad_name": "¿Querés ofrecer un producto de calidad?",
+        "score": 206.84999999999997,
+        "cpa": 555.4586415276772,
+        "spend": 114896.62,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+        "score": 177.54999999999998,
+        "cpa": 488.74581807941433,
+        "spend": 86776.82,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "¿Querés vender nuestros productos?",
+        "score": 3.5999999999999996,
+        "cpa": 846.2083333333334,
+        "spend": 3046.35,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica CABA+BSAS - Copia",
+        "score": 2.05,
+        "cpa": 675.6780487804879,
+        "spend": 1385.14,
+        "actividad": "GASTANDO"
+      },
+      {
+        "ad_name": "¿Buscando unirte a la industria del helado?",
+        "score": 1.65,
+        "cpa": 1031.2181818181818,
+        "spend": 1701.51,
+        "actividad": "ACTIVO"
+      }
+    ],
+    "volumen": [
+      {
+        "ad_name": "¿Querés ofrecer un producto de calidad?",
+        "spend": 114896.62,
+        "cpa": 555.4586415276772,
+        "score": 206.84999999999997
+      },
+      {
+        "ad_name": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+        "spend": 86776.82,
+        "cpa": 488.74581807941433,
+        "score": 177.54999999999998
+      },
+      {
+        "ad_name": "¿Querés vender nuestros productos?",
+        "spend": 3046.35,
+        "cpa": 846.2083333333334,
+        "score": 3.5999999999999996
+      },
+      {
+        "ad_name": "¿Buscando unirte a la industria del helado?",
+        "spend": 1701.51,
+        "cpa": 1031.2181818181818,
+        "score": 1.65
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica CABA+BSAS - Copia",
+        "spend": 1385.14,
+        "cpa": 675.6780487804879,
+        "score": 2.05
+      }
+    ],
+    "eficiencia": [
+      {
+        "ad_name": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+        "cpa": 488.74581807941433,
+        "score": 177.54999999999998,
+        "spend": 86776.82,
+        "eficiencia": "MUY_EFICIENTE"
+      },
+      {
+        "ad_name": "¿Querés ofrecer un producto de calidad?",
+        "cpa": 555.4586415276772,
+        "score": 206.84999999999997,
+        "spend": 114896.62,
+        "eficiencia": "EFICIENTE"
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica CABA+BSAS - Copia",
+        "cpa": 675.6780487804879,
+        "score": 2.05,
+        "spend": 1385.14,
+        "eficiencia": "EFICIENTE"
+      },
+      {
+        "ad_name": "¿Querés vender nuestros productos?",
+        "cpa": 846.2083333333334,
+        "score": 3.5999999999999996,
+        "spend": 3046.35,
+        "eficiencia": "NORMAL"
+      },
+      {
+        "ad_name": "¿Buscando unirte a la industria del helado?",
+        "cpa": 1031.2181818181818,
+        "score": 1.65,
+        "spend": 1701.51,
+        "eficiencia": "NORMAL"
+      }
+    ]
+  },
+  "duplicar": [
+    {
+      "nombre": "¿Querés ofrecer un producto de calidad?",
+      "score": 206.8,
+      "cpa": 555.0,
+      "gasto": 114897.0,
+      "actividad": "ACTIVO",
+      "score_7d": 69.2,
+      "razones": [
+        "ALTO VOLUMEN: 207 conversiones ponderadas, es top performer",
+        "EFICIENTE: CPA $555 está por debajo de la mediana ($761)",
+        "SIGUE ACTIVO: Generó 69.2 conversiones en los últimos 7 días"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    },
+    {
+      "nombre": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+      "score": 177.5,
+      "cpa": 489.0,
+      "gasto": 86777.0,
+      "actividad": "ACTIVO",
+      "score_7d": 21.8,
+      "razones": [
+        "ALTO VOLUMEN: 178 conversiones ponderadas, es top performer",
+        "MUY EFICIENTE: CPA $489 es 36% menor que la mediana ($761)",
+        "SIGUE ACTIVO: Generó 21.8 conversiones en los últimos 7 días"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    }
+  ],
+  "acciones_urgentes": [
+    {
+      "tipo": "REVISAR",
+      "nombre": "Producimos un helado artesanal premium, con una",
+      "razon": "CPA $3,142 es 4.1× la mediana ($761)",
+      "accion": "Bajar puja 20% o pausar si no mejora en 3 días"
+    }
+  ],
+  "anuncios": [
+    {
+      "nombre": "¿Querés ofrecer un producto de calidad?",
+      "score": 206.85,
+      "cpa": 555.46,
+      "gasto": 114896.62,
+      "eficiencia": "EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 69.15,
+      "gasto_7d": 38431.65
+    },
+    {
+      "nombre": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+      "score": 177.55,
+      "cpa": 488.75,
+      "gasto": 86776.82,
+      "eficiencia": "MUY_EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 21.75,
+      "gasto_7d": 9886.71
+    },
+    {
+      "nombre": "¿Querés vender nuestros productos?",
+      "score": 3.6,
+      "cpa": 846.21,
+      "gasto": 3046.35,
+      "eficiencia": "NORMAL",
+      "actividad": "ACTIVO",
+      "score_7d": 0.9,
+      "gasto_7d": 298.12
+    },
+    {
+      "nombre": "Presupuesto - Leads -> PUB: Fábrica CABA+BSAS - Copia",
+      "score": 2.05,
+      "cpa": 675.68,
+      "gasto": 1385.14,
+      "eficiencia": "EFICIENTE",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 11.36
+    },
+    {
+      "nombre": "¿Buscando unirte a la industria del helado?",
+      "score": 1.65,
+      "cpa": 1031.22,
+      "gasto": 1701.51,
+      "eficiencia": "NORMAL",
+      "actividad": "ACTIVO",
+      "score_7d": 0.3,
+      "gasto_7d": 237.99
+    },
+    {
+      "nombre": "Producimos un helado artesanal premium, con una",
+      "score": 0.15,
+      "cpa": 3142.2,
+      "gasto": 471.33,
+      "eficiencia": "CARO",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 63.53
+    },
+    {
+      "nombre": "Presupuesto - Leads -> PUB: Fábrica CABA+BSAS",
+      "score": 0.0,
+      "cpa": 0,
+      "gasto": 260.15,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 82.06
+    }
+  ],
+  "historico": [
+    {
+      "periodo": "nov",
+      "score": 399.4
+    }
+  ],
+  "glosario": {
+    "score": {
+      "nombre": "Score (Conversiones Ponderadas)",
+      "descripcion": "Valor total de acciones: mensajes (1.0), clics (0.15), visitas IG (0.3)",
+      "interpretacion": "Mayor score = mejor rendimiento"
+    },
+    "cpa": {
+      "nombre": "CPA (Costo Por Adquisición)",
+      "descripcion": "Gasto ÷ Score = cuánto pagas por cada conversión",
+      "interpretacion": "Menor CPA = más eficiente"
+    },
+    "mediana_cpa": {
+      "nombre": "Mediana CPA",
+      "descripcion": "El CPA del anuncio 'del medio' - tu punto de referencia",
+      "interpretacion": "CPA < mediana = mejor que promedio"
+    },
+    "eficiencia": {
+      "nombre": "Eficiencia",
+      "descripcion": "Comparación del CPA vs la mediana",
+      "categorias": {
+        "MUY_EFICIENTE": "CPA < 70% de mediana",
+        "EFICIENTE": "CPA < mediana",
+        "NORMAL": "CPA < 150% de mediana",
+        "CARO": "CPA > 150% de mediana"
+      }
+    },
+    "actividad": {
+      "nombre": "Actividad (últimos 7 días)",
+      "categorias": {
+        "ACTIVO": "Generó conversiones en 7 días",
+        "GASTANDO": "Gastó pero no convirtió en 7 días",
+        "INACTIVO": "Sin gasto ni conversiones en 7 días"
+      }
+    }
+  }
+}

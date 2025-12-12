@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "cliente": "REFRIGERACI",
+    "fecha": "2025-12-12",
+    "version": "2.0"
+  },
+  "resumen": {
+    "gasto_total": 58315.5,
+    "score_total": 28.0,
+    "cpa_global": 2082.7,
+    "mediana_cpa": 2100.61,
+    "total_anuncios": 6,
+    "con_conversiones": 3,
+    "actividad": {
+      "activos": 1,
+      "gastando": 1,
+      "inactivos": 4,
+      "sin_datos_7d": 0
+    },
+    "eficiencia": {
+      "muy_eficientes": 1,
+      "eficientes": 1,
+      "normales": 1,
+      "caros": 0
+    }
+  },
+  "mediana_cpa": 2100.61,
+  "rankings": {
+    "impacto": [
+      {
+        "ad_name": "Ofrecemos la asistencia técnica que tu negocio necesita:",
+        "score": 23.0,
+        "cpa": 2100.609130434783,
+        "spend": 48314.01,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "¡Instalamos un sistema de climatización de forma",
+        "score": 4.0,
+        "cpa": 2277.83,
+        "spend": 9111.32,
+        "actividad": "GASTANDO"
+      },
+      {
+        "ad_name": "🧰 Así fabricamos y montamos una cámara frigorífica",
+        "score": 1.0,
+        "cpa": 521.63,
+        "spend": 521.63,
+        "actividad": "INACTIVO"
+      },
+      {
+        "ad_name": "¡Obra de climatización en Parque Industrial de Pilar!",
+        "score": 0.0,
+        "cpa": 0,
+        "spend": 79.24,
+        "actividad": "INACTIVO"
+      },
+      {
+        "ad_name": "Lo caro no es el mantenimiento, es la falla.",
+        "score": 0.0,
+        "cpa": 0,
+        "spend": 51.41,
+        "actividad": "INACTIVO"
+      }
+    ],
+    "volumen": [
+      {
+        "ad_name": "Ofrecemos la asistencia técnica que tu negocio necesita:",
+        "spend": 48314.01,
+        "cpa": 2100.609130434783,
+        "score": 23.0
+      },
+      {
+        "ad_name": "¡Instalamos un sistema de climatización de forma",
+        "spend": 9111.32,
+        "cpa": 2277.83,
+        "score": 4.0
+      },
+      {
+        "ad_name": "🧰 Así fabricamos y montamos una cámara frigorífica",
+        "spend": 521.63,
+        "cpa": 521.63,
+        "score": 1.0
+      },
+      {
+        "ad_name": "🧊 Cuando otros tardan en conseguir un repuesto… nosotros ya lo tenemos.",
+        "spend": 237.89,
+        "cpa": 0,
+        "score": 0.0
+      },
+      {
+        "ad_name": "¡Obra de climatización en Parque Industrial de Pilar!",
+        "spend": 79.24,
+        "cpa": 0,
+        "score": 0.0
+      }
+    ],
+    "eficiencia": [
+      {
+        "ad_name": "🧰 Así fabricamos y montamos una cámara frigorífica",
+        "cpa": 521.63,
+        "score": 1.0,
+        "spend": 521.63,
+        "eficiencia": "MUY_EFICIENTE"
+      },
+      {
+        "ad_name": "Ofrecemos la asistencia técnica que tu negocio necesita:",
+        "cpa": 2100.609130434783,
+        "score": 23.0,
+        "spend": 48314.01,
+        "eficiencia": "EFICIENTE"
+      },
+      {
+        "ad_name": "¡Instalamos un sistema de climatización de forma",
+        "cpa": 2277.83,
+        "score": 4.0,
+        "spend": 9111.32,
+        "eficiencia": "NORMAL"
+      }
+    ]
+  },
+  "duplicar": [
+    {
+      "nombre": "Ofrecemos la asistencia técnica que tu negocio necesita:",
+      "score": 23.0,
+      "cpa": 2101.0,
+      "gasto": 48314.0,
+      "actividad": "ACTIVO",
+      "score_7d": 4.0,
+      "razones": [
+        "ALTO VOLUMEN: 23 conversiones ponderadas, es top performer",
+        "EFICIENTE: CPA $2101 está por debajo de la mediana ($2101)",
+        "SIGUE ACTIVO: Generó 4.0 conversiones en los últimos 7 días"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    }
+  ],
+  "acciones_urgentes": [],
+  "anuncios": [
+    {
+      "nombre": "Ofrecemos la asistencia técnica que tu negocio necesita:",
+      "score": 23.0,
+      "cpa": 2100.61,
+      "gasto": 48314.01,
+      "eficiencia": "EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 4.0,
+      "gasto_7d": 13561.55
+    },
+    {
+      "nombre": "¡Instalamos un sistema de climatización de forma",
+      "score": 4.0,
+      "cpa": 2277.83,
+      "gasto": 9111.32,
+      "eficiencia": "NORMAL",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 474.96
+    },
+    {
+      "nombre": "🧰 Así fabricamos y montamos una cámara frigorífica",
+      "score": 1.0,
+      "cpa": 521.63,
+      "gasto": 521.63,
+      "eficiencia": "MUY_EFICIENTE",
+      "actividad": "INACTIVO",
+      "score_7d": 0.0,
+      "gasto_7d": 0.0
+    },
+    {
+      "nombre": "¡Obra de climatización en Parque Industrial de Pilar!",
+      "score": 0.0,
+      "cpa": 0,
+      "gasto": 79.24,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "INACTIVO",
+      "score_7d": 0.0,
+      "gasto_7d": 0.0
+    },
+    {
+      "nombre": "Lo caro no es el mantenimiento, es la falla.",
+      "score": 0.0,
+      "cpa": 0,
+      "gasto": 51.41,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "INACTIVO",
+      "score_7d": 0.0,
+      "gasto_7d": 0.0
+    },
+    {
+      "nombre": "🧊 Cuando otros tardan en conseguir un repuesto… nosotros ya lo tenemos.",
+      "score": 0.0,
+      "cpa": 0,
+      "gasto": 237.89,
+      "eficiencia": "SIN_DATOS",
+      "actividad": "INACTIVO",
+      "score_7d": 0.0,
+      "gasto_7d": 0.0
+    }
+  ],
+  "historico": [
+    {
+      "periodo": "nov",
+      "score": 35.0
+    },
+    {
+      "periodo": "oct",
+      "score": 9.0
+    },
+    {
+      "periodo": "sep",
+      "score": 7.0
+    }
+  ],
+  "glosario": {
+    "score": {
+      "nombre": "Score (Conversiones Ponderadas)",
+      "descripcion": "Valor total de acciones: mensajes (1.0), clics (0.15), visitas IG (0.3)",
+      "interpretacion": "Mayor score = mejor rendimiento"
+    },
+    "cpa": {
+      "nombre": "CPA (Costo Por Adquisición)",
+      "descripcion": "Gasto ÷ Score = cuánto pagas por cada conversión",
+      "interpretacion": "Menor CPA = más eficiente"
+    },
+    "mediana_cpa": {
+      "nombre": "Mediana CPA",
+      "descripcion": "El CPA del anuncio 'del medio' - tu punto de referencia",
+      "interpretacion": "CPA < mediana = mejor que promedio"
+    },
+    "eficiencia": {
+      "nombre": "Eficiencia",
+      "descripcion": "Comparación del CPA vs la mediana",
+      "categorias": {
+        "MUY_EFICIENTE": "CPA < 70% de mediana",
+        "EFICIENTE": "CPA < mediana",
+        "NORMAL": "CPA < 150% de mediana",
+        "CARO": "CPA > 150% de mediana"
+      }
+    },
+    "actividad": {
+      "nombre": "Actividad (últimos 7 días)",
+      "categorias": {
+        "ACTIVO": "Generó conversiones en 7 días",
+        "GASTANDO": "Gastó pero no convirtió en 7 días",
+        "INACTIVO": "Sin gasto ni conversiones en 7 días"
+      }
+    }
+  }
+}

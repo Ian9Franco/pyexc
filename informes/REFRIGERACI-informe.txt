@@ -1,4 +1,4 @@
-INFORME META ADS: PANICHELLA
+INFORME META ADS: REFRIGERACI
 Fecha: 2025-12-12
 ============================================================
 
@@ -60,18 +60,18 @@ ACTIVIDAD (estado reciente)
 ## A: RESUMEN DE LA CUENTA (últimos 30 días)
 ============================================================
 
-Gasto Total: $121,013.34 ARS
-Conversiones Totales (Score): 63.0
-CPA Promedio: $1,919.32
-CPA Mediana: $2,233.43
+Gasto Total: $58,315.50 ARS
+Conversiones Totales (Score): 28.0
+CPA Promedio: $2,082.70
+CPA Mediana: $2,100.61
 
-Total de anuncios: 13
-Anuncios con conversiones: 9
+Total de anuncios: 6
+Anuncios con conversiones: 3
 
 Estado de los anuncios (últimos 7 días):
-   ACTIVOS (convirtiendo): 8
-   GASTANDO (sin convertir): 4
-   INACTIVOS: 1
+   ACTIVOS (convirtiendo): 1
+   GASTANDO (sin convertir): 1
+   INACTIVOS: 4
 
 
 ## B: RANKINGS - LOS MEJORES ANUNCIOS
@@ -79,41 +79,39 @@ Estado de los anuncios (últimos 7 días):
 
 [TROFEO] TOP 5 POR IMPACTO (más conversiones)
 ----------------------------------------
-  Proyecto “Buen Viaje”...
-     Score: 38.0 | CPA: $1409 | ACTIVO
-  Así transformamos un espacio un.....
-     Score: 16.3 | CPA: $2157 | ACTIVO
-  Descubrí cómo transformamos...
-     Score: 4.5 | CPA: $2233 | ACTIVO
-  2025-08-PresentaciónOficina-V1.0...
-     Score: 2.8 | CPA: $4693 | GASTANDO
-  Bienvenidos al lugar donde sucede la magia...
-     Score: 0.8 | CPA: $4814 | ACTIVO
+  Ofrecemos la asistencia técnica que tu negoci...
+     Score: 23.0 | CPA: $2101 | ACTIVO
+  ¡Instalamos un sistema de climatización de fo...
+     Score: 4.0 | CPA: $2278 | GASTANDO
+  🧰 Así fabricamos y montamos una cámara frigor...
+     Score: 1.0 | CPA: $522 | INACTIVO
+  ¡Obra de climatización en Parque Industrial d...
+     Score: 0.0 | CPA: $nan | INACTIVO
+  Lo caro no es el mantenimiento, es la falla....
+     Score: 0.0 | CPA: $nan | INACTIVO
 
 [DINERO] TOP 5 POR GASTO (más inversión)
 ----------------------------------------
-  Proyecto “Buen Viaje”...
-     Gasto: $53,478 | CPA: $1409
-  Así transformamos un espacio un.....
-     Gasto: $35,157 | CPA: $2157
-  2025-08-PresentaciónOficina-V1.0...
-     Gasto: $12,907 | CPA: $4693
-  Descubrí cómo transformamos...
-     Gasto: $10,162 | CPA: $2233
-  Bienvenidos al lugar donde sucede la magia...
-     Gasto: $3,610 | CPA: $4814
+  Ofrecemos la asistencia técnica que tu negoci...
+     Gasto: $48,314 | CPA: $2101
+  ¡Instalamos un sistema de climatización de fo...
+     Gasto: $9,111 | CPA: $2278
+  🧰 Así fabricamos y montamos una cámara frigor...
+     Gasto: $522 | CPA: $522
+  🧊 Cuando otros tardan en conseguir un repuest...
+     Gasto: $238 | CPA: $nan
+  ¡Obra de climatización en Parque Industrial d...
+     Gasto: $79 | CPA: $nan
 
 [RAYO] TOP 5 POR EFICIENCIA (menor CPA)
        (Solo anuncios con al menos 1 conversión)
 ----------------------------------------
-  Proyecto “Buen Viaje”...
-     CPA: $1409 (-37% vs mediana) | Score: 38.0
-  Así transformamos un espacio un.....
-     CPA: $2157 (-3% vs mediana) | Score: 16.3
-  Descubrí cómo transformamos...
-     CPA: $2233 (= mediana) | Score: 4.5
-  2025-08-PresentaciónOficina-V1.0...
-     CPA: $4693 (+110% vs mediana) | Score: 2.8
+  🧰 Así fabricamos y montamos una cámara frigor...
+     CPA: $522 (-75% vs mediana) | Score: 1.0
+  Ofrecemos la asistencia técnica que tu negoci...
+     CPA: $2101 (= mediana) | Score: 23.0
+  ¡Instalamos un sistema de climatización de fo...
+     CPA: $2278 (+8% vs mediana) | Score: 4.0
 
 
 ## C: ANUNCIOS PARA ESCALAR (DUPLICAR)
@@ -134,51 +132,26 @@ QUE SIGNIFICA 'DUPLICAR UN ANUNCIO':
 
 CRITERIOS DE SELECCIÓN:
    1. Score >= 10 (volumen significativo de conversiones)
-   2. CPA <= $2680 (máximo 120% de la mediana $2233)
+   2. CPA <= $2521 (máximo 120% de la mediana $2101)
    3. Actividad reciente (no anuncios abandonados)
 
-ENCONTRAMOS 2 ANUNCIO(S) PARA ESCALAR:
+ENCONTRAMOS 1 ANUNCIO(S) PARA ESCALAR:
 
 ==================================================
-[ESCALAR] #1: Proyecto “Buen Viaje”
-==================================================
-
-   MÉTRICAS DEL ANUNCIO:
-   - Score: 38.0 conversiones ponderadas
-   - CPA: $1409 (mediana: $2233)
-   - Eficiencia: EXCELENTE (63% de la mediana)
-   - Gasto acumulado: $53,478
-   - Actividad: ACTIVO
-
-   POR QUÉ ESCALAR ESTE ANUNCIO:
-   - ALTO VOLUMEN: 38 conversiones ponderadas, es top performer
-   - MUY EFICIENTE: CPA $1409 es 37% menor que la mediana ($2233)
-   - SIGUE ACTIVO: Generó 6.8 conversiones en los últimos 7 días
-
-   CÓMO ESCALARLO:
-   1. Ve a Ads Manager y selecciona este anuncio
-   2. Click en 'Duplicar' > 'Duplicar en mismo conjunto'
-   3. En el nuevo anuncio, CAMBIA SOLO el creativo:
-      - Nueva imagen/video que no esté en otras campañas
-      - Puedes probar nuevo copy también
-   4. Mantén la misma audiencia y configuración
-   5. Empieza con presupuesto igual al original
-
-==================================================
-[ESCALAR] #2: Así transformamos un espacio un..
+[ESCALAR] #1: Ofrecemos la asistencia técnica que tu negocio nec
 ==================================================
 
    MÉTRICAS DEL ANUNCIO:
-   - Score: 16.3 conversiones ponderadas
-   - CPA: $2157 (mediana: $2233)
-   - Eficiencia: BUENA (97% de la mediana)
-   - Gasto acumulado: $35,157
+   - Score: 23.0 conversiones ponderadas
+   - CPA: $2101 (mediana: $2101)
+   - Eficiencia: ACEPTABLE (100% de la mediana)
+   - Gasto acumulado: $48,314
    - Actividad: ACTIVO
 
    POR QUÉ ESCALAR ESTE ANUNCIO:
-   - BUEN VOLUMEN: 16 conversiones demuestran que funciona
-   - EFICIENTE: CPA $2157 está por debajo de la mediana ($2233)
-   - SIGUE ACTIVO: Generó 0.6 conversiones en los últimos 7 días
+   - ALTO VOLUMEN: 23 conversiones ponderadas, es top performer
+   - EFICIENTE: CPA $2101 está por debajo de la mediana ($2101)
+   - SIGUE ACTIVO: Generó 4.0 conversiones en los últimos 7 días
 
    CÓMO ESCALARLO:
    1. Ve a Ads Manager y selecciona este anuncio
@@ -193,11 +166,8 @@ ENCONTRAMOS 2 ANUNCIO(S) PARA ESCALAR:
 ## D: ACCIONES URGENTES
 ============================================================
 
-[ALERTA] REVISAR: 2025-08-PresentaciónOficina-V1.0
-   Por qué: CPA $4,693 es 2.1× la mediana ($2233)
-   Detalle: Sigue gastando pero sin generar conversiones recientes
-   Acción: Bajar puja 20% o pausar si no mejora en 3 días
-
+[OK] Sin acciones urgentes.
+    Todos los anuncios están dentro de parámetros aceptables.
 
 
 ## E: DETALLE DE TODOS LOS ANUNCIOS
@@ -205,19 +175,12 @@ ENCONTRAMOS 2 ANUNCIO(S) PARA ESCALAR:
 
 Anuncio | Score | CPA | Eficiencia | Actividad
 ----------------------------------------------------------------------
-Proyecto “Buen Viaje”... | 38.0 | $1409 | MUY_EFICIENTE | ACTIVO
-Así transformamos un espa... | 16.3 | $2157 | EFICIENTE | ACTIVO
-Descubrí cómo transformam... | 4.5 | $2233 | EFICIENTE | ACTIVO
-2025-08-PresentaciónOfici... | 2.8 | $4693 | CARO | GASTANDO
-Bienvenidos al lugar dond... | 0.8 | $4814 | CARO | ACTIVO
-Un adelanto del nuevo pro... | 0.3 | $3360 | CARO | ACTIVO
-Te presentamos al team de... | 0.1 | $19483 | CARO | ACTIVO
-Texturas, colores y mater... | 0.1 | $765 | MUY_EFICIENTE | ACTIVO
-Si te interesa lo que hac... | 0.1 | $1159 | MUY_EFICIENTE | ACTIVO
-¿Querés conocer nuestro p... | 0.0 | N/A | SIN_DATOS | GASTANDO
-¿Cómo transformar un depa... | 0.0 | N/A | SIN_DATOS | INACTIVO
-Elegir un revestimiento, ... | 0.0 | N/A | SIN_DATOS | GASTANDO
-Somos un estudio de arqui... | 0.0 | N/A | SIN_DATOS | GASTANDO
+Ofrecemos la asistencia t... | 23.0 | $2101 | EFICIENTE | ACTIVO
+¡Instalamos un sistema de... | 4.0 | $2278 | NORMAL | GASTANDO
+🧰 Así fabricamos y montam... | 1.0 | $522 | MUY_EFICIENTE | INACTIVO
+¡Obra de climatización en... | 0.0 | N/A | SIN_DATOS | INACTIVO
+Lo caro no es el mantenim... | 0.0 | N/A | SIN_DATOS | INACTIVO
+🧊 Cuando otros tardan en ... | 0.0 | N/A | SIN_DATOS | INACTIVO
 
 
 ## F: CONTEXTO HISTÓRICO POR PERÍODO
@@ -225,13 +188,13 @@ Somos un estudio de arqui... | 0.0 | N/A | SIN_DATOS | GASTANDO
 
 SCORE TOTAL POR MES:
 ----------------------------------------
-     SEP: ████████████████████   69.6 (↑ sobre promedio)
-     OCT: ████████░░░░░░░░░░░░   30.4 (↓ bajo promedio)
-     NOV: ██████████████████░░   65.0 (↑ sobre promedio)
+     SEP: ████░░░░░░░░░░░░░░░░    7.0 (↓ bajo promedio)
+     OCT: █████░░░░░░░░░░░░░░░    9.0 (↓ bajo promedio)
+     NOV: ████████████████████   35.0 (↑ sobre promedio)
 
-   Promedio mensual: 55.0
-   Mejor mes: 69.6
-   Peor mes: 30.4
+   Promedio mensual: 17.0
+   Mejor mes: 35.0
+   Peor mes: 7.0
 
 TENDENCIA GENERAL:
-   La cuenta se mantuvo ESTABLE (variación de -7%)
+   La cuenta MEJORÓ 400% desde sep hasta nov

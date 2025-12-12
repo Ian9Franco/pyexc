@@ -1,0 +1,306 @@
+{
+  "meta": {
+    "cliente": "TolentinosLeadsSEL",
+    "fecha": "2025-12-12",
+    "version": "2.0"
+  },
+  "resumen": {
+    "gasto_total": 202537.37,
+    "score_total": 299.15,
+    "cpa_global": 677.04,
+    "mediana_cpa": 651.3,
+    "total_anuncios": 6,
+    "con_conversiones": 6,
+    "actividad": {
+      "activos": 4,
+      "gastando": 2,
+      "inactivos": 0,
+      "sin_datos_7d": 0
+    },
+    "eficiencia": {
+      "muy_eficientes": 0,
+      "eficientes": 3,
+      "normales": 2,
+      "caros": 1
+    }
+  },
+  "mediana_cpa": 651.3,
+  "rankings": {
+    "impacto": [
+      {
+        "ad_name": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+        "score": 212.39999999999998,
+        "cpa": 689.2617231638419,
+        "spend": 146399.19,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "¿Querés ofrecer un producto de calidad?",
+        "score": 60.5,
+        "cpa": 613.3360330578513,
+        "spend": 37106.83,
+        "actividad": "ACTIVO"
+      },
+      {
+        "ad_name": "¿Creías que no existía el helado perfecto?",
+        "score": 13.2,
+        "cpa": 560.1803030303031,
+        "spend": 7394.38,
+        "actividad": "GASTANDO"
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica ARG - Copia",
+        "score": 11.1,
+        "cpa": 872.9495495495496,
+        "spend": 9689.74,
+        "actividad": "GASTANDO"
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica ARG",
+        "score": 1.0499999999999998,
+        "cpa": 1385.3904761904764,
+        "spend": 1454.66,
+        "actividad": "ACTIVO"
+      }
+    ],
+    "volumen": [
+      {
+        "ad_name": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+        "spend": 146399.19,
+        "cpa": 689.2617231638419,
+        "score": 212.39999999999998
+      },
+      {
+        "ad_name": "¿Querés ofrecer un producto de calidad?",
+        "spend": 37106.83,
+        "cpa": 613.3360330578513,
+        "score": 60.5
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica ARG - Copia",
+        "spend": 9689.74,
+        "cpa": 872.9495495495496,
+        "score": 11.1
+      },
+      {
+        "ad_name": "¿Creías que no existía el helado perfecto?",
+        "spend": 7394.38,
+        "cpa": 560.1803030303031,
+        "score": 13.2
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica ARG",
+        "spend": 1454.66,
+        "cpa": 1385.3904761904764,
+        "score": 1.0499999999999998
+      }
+    ],
+    "eficiencia": [
+      {
+        "ad_name": "¿Creías que no existía el helado perfecto?",
+        "cpa": 560.1803030303031,
+        "score": 13.2,
+        "spend": 7394.38,
+        "eficiencia": "EFICIENTE"
+      },
+      {
+        "ad_name": "¿Querés ofrecer un producto de calidad?",
+        "cpa": 613.3360330578513,
+        "score": 60.5,
+        "spend": 37106.83,
+        "eficiencia": "EFICIENTE"
+      },
+      {
+        "ad_name": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+        "cpa": 689.2617231638419,
+        "score": 212.39999999999998,
+        "spend": 146399.19,
+        "eficiencia": "NORMAL"
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica ARG - Copia",
+        "cpa": 872.9495495495496,
+        "score": 11.1,
+        "spend": 9689.74,
+        "eficiencia": "NORMAL"
+      },
+      {
+        "ad_name": "Presupuesto - Leads -> PUB: Fábrica ARG",
+        "cpa": 1385.3904761904764,
+        "score": 1.0499999999999998,
+        "spend": 1454.66,
+        "eficiencia": "CARO"
+      }
+    ]
+  },
+  "duplicar": [
+    {
+      "nombre": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+      "score": 212.4,
+      "cpa": 689.0,
+      "gasto": 146399.0,
+      "actividad": "ACTIVO",
+      "score_7d": 66.5,
+      "razones": [
+        "ALTO VOLUMEN: 212 conversiones ponderadas, es top performer",
+        "CPA ACEPTABLE: $689 dentro del rango permitido (máx $782)",
+        "SIGUE ACTIVO: Generó 66.5 conversiones en los últimos 7 días"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    },
+    {
+      "nombre": "¿Querés ofrecer un producto de calidad?",
+      "score": 60.5,
+      "cpa": 613.0,
+      "gasto": 37107.0,
+      "actividad": "ACTIVO",
+      "score_7d": 16.1,
+      "razones": [
+        "ALTO VOLUMEN: 60 conversiones ponderadas, es top performer",
+        "EFICIENTE: CPA $613 está por debajo de la mediana ($651)",
+        "SIGUE ACTIVO: Generó 16.1 conversiones en los últimos 7 días"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    },
+    {
+      "nombre": "¿Creías que no existía el helado perfecto?",
+      "score": 13.2,
+      "cpa": 560.0,
+      "gasto": 7394.0,
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "razones": [
+        "BUEN VOLUMEN: 13 conversiones demuestran que funciona",
+        "EFICIENTE: CPA $560 está por debajo de la mediana ($651)"
+      ],
+      "acciones": [
+        "Duplicar el ANUNCIO (configuración y audiencia), NO el creativo",
+        "Usar una nueva imagen/video que no esté en otras campañas",
+        "Mantener la misma segmentación que funciona",
+        "Empezar con presupuesto igual al original"
+      ]
+    }
+  ],
+  "acciones_urgentes": [],
+  "anuncios": [
+    {
+      "nombre": "¡La calidad que tus clientes esperan, la encontrás en Tolentinos! 🍨",
+      "score": 212.4,
+      "cpa": 689.26,
+      "gasto": 146399.19,
+      "eficiencia": "NORMAL",
+      "actividad": "ACTIVO",
+      "score_7d": 66.5,
+      "gasto_7d": 37399.53
+    },
+    {
+      "nombre": "¿Querés ofrecer un producto de calidad?",
+      "score": 60.5,
+      "cpa": 613.34,
+      "gasto": 37106.83,
+      "eficiencia": "EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 16.1,
+      "gasto_7d": 10742.38
+    },
+    {
+      "nombre": "¿Creías que no existía el helado perfecto?",
+      "score": 13.2,
+      "cpa": 560.18,
+      "gasto": 7394.38,
+      "eficiencia": "EFICIENTE",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 2.58
+    },
+    {
+      "nombre": "Presupuesto - Leads -> PUB: Fábrica ARG - Copia",
+      "score": 11.1,
+      "cpa": 872.95,
+      "gasto": 9689.74,
+      "eficiencia": "NORMAL",
+      "actividad": "GASTANDO",
+      "score_7d": 0.0,
+      "gasto_7d": 104.95
+    },
+    {
+      "nombre": "Presupuesto - Leads -> PUB: Fábrica ARG",
+      "score": 1.05,
+      "cpa": 1385.39,
+      "gasto": 1454.66,
+      "eficiencia": "CARO",
+      "actividad": "ACTIVO",
+      "score_7d": 0.15,
+      "gasto_7d": 55.32
+    },
+    {
+      "nombre": "Producimos un helado artesanal premium, con una",
+      "score": 0.9,
+      "cpa": 547.3,
+      "gasto": 492.57,
+      "eficiencia": "EFICIENTE",
+      "actividad": "ACTIVO",
+      "score_7d": 0.3,
+      "gasto_7d": 74.92
+    }
+  ],
+  "historico": [
+    {
+      "periodo": "nov",
+      "score": 322.75
+    },
+    {
+      "periodo": "oct",
+      "score": 125.0
+    },
+    {
+      "periodo": "sep",
+      "score": 79.0
+    }
+  ],
+  "glosario": {
+    "score": {
+      "nombre": "Score (Conversiones Ponderadas)",
+      "descripcion": "Valor total de acciones: mensajes (1.0), clics (0.15), visitas IG (0.3)",
+      "interpretacion": "Mayor score = mejor rendimiento"
+    },
+    "cpa": {
+      "nombre": "CPA (Costo Por Adquisición)",
+      "descripcion": "Gasto ÷ Score = cuánto pagas por cada conversión",
+      "interpretacion": "Menor CPA = más eficiente"
+    },
+    "mediana_cpa": {
+      "nombre": "Mediana CPA",
+      "descripcion": "El CPA del anuncio 'del medio' - tu punto de referencia",
+      "interpretacion": "CPA < mediana = mejor que promedio"
+    },
+    "eficiencia": {
+      "nombre": "Eficiencia",
+      "descripcion": "Comparación del CPA vs la mediana",
+      "categorias": {
+        "MUY_EFICIENTE": "CPA < 70% de mediana",
+        "EFICIENTE": "CPA < mediana",
+        "NORMAL": "CPA < 150% de mediana",
+        "CARO": "CPA > 150% de mediana"
+      }
+    },
+    "actividad": {
+      "nombre": "Actividad (últimos 7 días)",
+      "categorias": {
+        "ACTIVO": "Generó conversiones en 7 días",
+        "GASTANDO": "Gastó pero no convirtió en 7 días",
+        "INACTIVO": "Sin gasto ni conversiones en 7 días"
+      }
+    }
+  }
+}

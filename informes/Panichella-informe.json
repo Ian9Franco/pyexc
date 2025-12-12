@@ -5,9 +5,9 @@
     "version": "2.0"
   },
   "resumen": {
-    "gasto_total": 121000.23,
+    "gasto_total": 121013.34,
     "score_total": 63.05,
-    "cpa_global": 1919.12,
+    "cpa_global": 1919.32,
     "mediana_cpa": 2233.43,
     "total_anuncios": 13,
     "con_conversiones": 9,
@@ -30,8 +30,8 @@
       {
         "ad_name": "Proyecto “Buen Viaje”",
         "score": 37.95,
-        "cpa": 1408.8166007905136,
-        "spend": 53464.59,
+        "cpa": 1409.1620553359683,
+        "spend": 53477.7,
         "actividad": "ACTIVO"
       },
       {
@@ -66,8 +66,8 @@
     "volumen": [
       {
         "ad_name": "Proyecto “Buen Viaje”",
-        "spend": 53464.59,
-        "cpa": 1408.8166007905136,
+        "spend": 53477.7,
+        "cpa": 1409.1620553359683,
         "score": 37.95
       },
       {
@@ -98,9 +98,9 @@
     "eficiencia": [
       {
         "ad_name": "Proyecto “Buen Viaje”",
-        "cpa": 1408.8166007905136,
+        "cpa": 1409.1620553359683,
         "score": 37.95,
-        "spend": 53464.59,
+        "spend": 53477.7,
         "eficiencia": "MUY_EFICIENTE"
       },
       {
@@ -131,7 +131,7 @@
       "nombre": "Proyecto “Buen Viaje”",
       "score": 38.0,
       "cpa": 1409.0,
-      "gasto": 53465.0,
+      "gasto": 53478.0,
       "actividad": "ACTIVO",
       "score_7d": 6.8,
       "razones": [
@@ -178,12 +178,12 @@
     {
       "nombre": "Proyecto “Buen Viaje”",
       "score": 37.95,
-      "cpa": 1408.82,
-      "gasto": 53464.59,
+      "cpa": 1409.16,
+      "gasto": 53477.7,
       "eficiencia": "MUY_EFICIENTE",
       "actividad": "ACTIVO",
       "score_7d": 6.8,
-      "gasto_7d": 18086.86
+      "gasto_7d": 18099.97
     },
     {
       "nombre": "Así transformamos un espacio un..",
@@ -268,7 +268,7 @@
     {
       "nombre": "¿Querés conocer nuestro proceso de trabajo?",
       "score": 0.0,
-      "cpa": null,
+      "cpa": 0,
       "gasto": 850.49,
       "eficiencia": "SIN_DATOS",
       "actividad": "GASTANDO",
@@ -278,7 +278,7 @@
     {
       "nombre": "¿Cómo transformar un departamento nuevo en un hogar con identidad?",
       "score": 0.0,
-      "cpa": null,
+      "cpa": 0,
       "gasto": 0.0,
       "eficiencia": "SIN_DATOS",
       "actividad": "INACTIVO",
@@ -288,7 +288,7 @@
     {
       "nombre": "Elegir un revestimiento, una tela o un mármol no es solo cuestión de gusto.",
       "score": 0.0,
-      "cpa": null,
+      "cpa": 0,
       "gasto": 597.49,
       "eficiencia": "SIN_DATOS",
       "actividad": "GASTANDO",
@@ -298,7 +298,7 @@
     {
       "nombre": "Somos un estudio de arquitectura interior que sabe explorar la funcionalidad de formas creativas.",
       "score": 0.0,
-      "cpa": null,
+      "cpa": 0,
       "gasto": 32.86,
       "eficiencia": "SIN_DATOS",
       "actividad": "GASTANDO",
