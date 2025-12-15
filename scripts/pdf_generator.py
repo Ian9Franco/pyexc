@@ -59,8 +59,11 @@ def generar_pdf(
 ):
     try:
         register_fonts()
-        os.makedirs(output_dir, exist_ok=True)
-        path = f"{output_dir}/{cliente}-informe.pdf"
+       output_dir = BASE_DIR / "informes"
+        output_dir.mkdir(exist_ok=True)
+
+        path = output_dir / f"{cliente}-informe.pdf"
+
 
         doc = SimpleDocTemplate(
             path,
