@@ -1,281 +1,212 @@
 """
-Módulo de carga de datos V4.
-Maneja la lectura de archivos Excel con normalización flexible
-usando el schema JSON de columnas.
+Módulo de carga de datos V4 – FIX DEFINITIVO
+- Corrige error df.dtype
+- Soporta columnas mal definidas
+- Robusto ante Excel sucio de Meta
 """
+
 import pandas as pd
 import glob
 import os
 import json
 import re
+from pathlib import Path
 from config import CRUDA_DIR, COLUMNAS_NUMERICAS, SCHEMA_DIR
+from pandas.api.types import is_numeric_dtype
 import warnings
-warnings.filterwarnings('ignore')
 
+warnings.filterwarnings("ignore")
+print(">>> DATA_LOADER V4 FIX DEFINITIVO CARGADO <<<")
+
+# -----------------------------------------------------------------------------
+# SCHEMA
+# -----------------------------------------------------------------------------
 
 def cargar_schema_columnas():
-    """
-    Carga el schema de mapeo de columnas desde el archivo JSON.
-    Permite flexibilidad para diferentes idiomas y versiones de Meta Ads.
-    
-    Returns:
-        dict: Diccionario con mapeo de columnas normalizadas a variantes
-    """
-    schema_path = f"{SCHEMA_DIR}/columnas.json"
-    
-    if os.path.exists(schema_path):
-        with open(schema_path, 'r', encoding='utf-8') as f:
+    schema_path = Path(SCHEMA_DIR) / "columnas.json"
+
+    if schema_path.exists():
+        with open(schema_path, "r", encoding="utf-8") as f:
             schema = json.load(f)
-            # Remover claves de metadatos
-            return {k: v for k, v in schema.items() if not k.startswith('_')}
-    
-    # Fallback si no existe el archivo
+            return {k: v for k, v in schema.items() if not k.startswith("_")}
+
     print("  [AVISO] No se encontró schema/columnas.json, usando mapeo básico")
     return {}
 
+# -----------------------------------------------------------------------------
+# NORMALIZACIÓN
+# -----------------------------------------------------------------------------
 
-def normalizar_columnas(df):
-    """
-    Renombra columnas de Meta Ads al formato interno estándar.
-    Usa el schema JSON para máxima flexibilidad.
-    
-    Args:
-        df: DataFrame con columnas originales de Meta Ads
-        
-    Returns:
-        DataFrame con columnas normalizadas
-    """
+def normalizar_columnas(df: pd.DataFrame) -> pd.DataFrame:
     schema = cargar_schema_columnas()
     mapping = {}
-    
+
     for col in df.columns:
-        col_clean = col.strip()
-        
-        # Buscar en el schema JSON
+        col_clean = str(col).strip()
+
         for nombre_normalizado, variantes in schema.items():
             if col_clean in variantes:
                 mapping[col] = nombre_normalizado
                 break
-        
-        # Si no está en el schema, intentar detección heurística
+
         if col not in mapping:
             col_lower = col_clean.lower()
-            
-            # Detectar gasto
-            if any(x in col_lower for x in ['gasto', 'spent', 'spend', 'importe']):
-                mapping[col] = 'spend'
-            # Detectar resultados
-            elif col_lower in ['resultados', 'results', 'result']:
-                mapping[col] = 'results'
-            # Detectar clics
-            elif 'clic' in col_lower and 'enlace' in col_lower:
-                mapping[col] = 'link_clicks'
-            elif col_lower in ['clics', 'clicks']:
-                mapping[col] = 'link_clicks'
-    
-    df = df.rename(columns=mapping)
-    return df
 
+            if any(x in col_lower for x in ["gasto", "spent", "spend", "importe"]):
+                mapping[col] = "spend"
+            elif col_lower in ["resultados", "results", "result"]:
+                mapping[col] = "results"
+            elif "clic" in col_lower and "enlace" in col_lower:
+                mapping[col] = "link_clicks"
+            elif col_lower in ["clics", "clicks"]:
+                mapping[col] = "link_clicks"
 
-def asegurar_columnas(df):
-    """
-    Asegura que todas las columnas numéricas necesarias existan.
-    Crea columnas faltantes con valor 0.
-    
-    Args:
-        df: DataFrame a completar
-        
-    Returns:
-        DataFrame con todas las columnas necesarias
-    """
+    return df.rename(columns=mapping)
+
+def asegurar_columnas(df: pd.DataFrame) -> pd.DataFrame:
     for col in COLUMNAS_NUMERICAS:
-        if col not in df.columns:
+        if isinstance(col, str) and col not in df.columns:
             df[col] = 0
-    
-    # Asegurar columna de nombre de anuncio
-    if 'ad_name' not in df.columns:
-        # Buscar alternativas
-        for alt in ['nombre', 'name', 'anuncio']:
-            for col in df.columns:
-                if alt in col.lower():
-                    df['ad_name'] = df[col]
-                    break
-        
-        # Si todavía no existe, crear una genérica
-        if 'ad_name' not in df.columns:
-            df['ad_name'] = [f"Anuncio_{i}" for i in range(len(df))]
-    
+
+    if "ad_name" not in df.columns:
+        for c in df.columns:
+            if any(x in c.lower() for x in ["nombre", "name", "anuncio"]):
+                df["ad_name"] = df[c]
+                break
+
+    if "ad_name" not in df.columns:
+        df["ad_name"] = [f"Anuncio_{i}" for i in range(len(df))]
+
     return df
 
+def convertir_numericos(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    FIX CLAVE:
+    - Evita df[col].dtype cuando col no es Serie
+    - Convierte solo Series válidas
+    """
 
-def convertir_numericos(df):
-    """
-    Convierte columnas numéricas al tipo correcto.
-    Maneja valores no numéricos, porcentajes y formatos especiales.
-    
-    Args:
-        df: DataFrame a convertir
-        
-    Returns:
-        DataFrame con tipos numéricos correctos
-    """
     for col in COLUMNAS_NUMERICAS:
-        if col in df.columns:
-            # Manejar valores de porcentaje (ej: "2.5%")
-            if df[col].dtype == object:
-                df[col] = df[col].astype(str).str.replace('%', '').str.replace(',', '.')
-            
-            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
-    
+        if not isinstance(col, str):
+            continue
+
+        if col not in df.columns:
+            continue
+
+        serie = df[col]
+
+        # Si por error vino como DataFrame (defensa extra)
+        if isinstance(serie, pd.DataFrame):
+            serie = serie.iloc[:, 0]
+
+        if not is_numeric_dtype(serie):
+            serie = (
+                serie.astype(str)
+                .str.replace("%", "", regex=False)
+                .str.replace(",", ".", regex=False)
+            )
+
+        df[col] = pd.to_numeric(serie, errors="coerce").fillna(0)
+
     return df
 
+# -----------------------------------------------------------------------------
+# ARCHIVOS
+# -----------------------------------------------------------------------------
 
 def detectar_tipo_archivo(filepath):
-    """
-    Detecta el tipo de dataset según el nombre del archivo.
-    
-    Tipos soportados:
-        - 7d: Últimos 7 días (tendencia inmediata)
-        - 30d: Últimos 30 días (rendimiento reciente)
-        - mes: Datos históricos mensuales
-    
-    Args:
-        filepath: Ruta al archivo
-        
-    Returns:
-        tuple: (tipo, periodo) ej: ('7d', '7d') o ('mes', 'sep')
-    """
-    nombre = os.path.basename(filepath).lower()
-    
-    # Detectar 7 días
-    if '-7d' in nombre or '_7d' in nombre:
-        return ('7d', '7d')
-    
-    # Detectar 30 días
-    if '-30d' in nombre or '_30d' in nombre:
-        return ('30d', '30d')
-    
-    # Detectar meses
-    meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 
-             'jul', 'ago', 'sep', 'oct', 'nov', 'dic',
-             'jan', 'feb', 'mar', 'apr', 'may', 'jun',
-             'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-    
-    for mes in meses:
-        if f'-{mes}' in nombre or f'_{mes}' in nombre:
-            return ('mes', mes[:3])
-    
-    # Si no se detecta, asumir 30d por defecto
-    return ('30d', 'default')
+    filename = os.path.basename(filepath).lower()
 
+    if re.search(r"[-_]30d\b", filename):
+        return "30d", "30d"
+    if re.search(r"[-_]7d\b", filename):
+        return "7d", "7d"
+
+    match_mes = re.search(r"[-_](ene|feb|mar|abr|may|jun|jul|ago|sep|oct|nov|dic)\b", filename)
+    if match_mes:
+        return "mes", match_mes.group(1)
+
+    return "otro", "n/a"
 
 def cargar_archivo(filepath):
-    """
-    Carga un archivo Excel y aplica normalización completa.
-    
-    Args:
-        filepath: Ruta al archivo .xlsx
-        
-    Returns:
-        DataFrame normalizado o None si hay error
-    """
     try:
-        # Intentar leer con diferentes engines
-        try:
-            df = pd.read_excel(filepath, engine='openpyxl')
-        except:
-            df = pd.read_excel(filepath)
-        
-        # Pipeline de normalización
+        df = pd.read_excel(filepath)
+
         df = normalizar_columnas(df)
         df = asegurar_columnas(df)
         df = convertir_numericos(df)
-        
-        # Agregar metadatos del archivo
+
         tipo, periodo = detectar_tipo_archivo(filepath)
-        df['_tipo_archivo'] = tipo
-        df['_periodo'] = periodo
-        df['_archivo_origen'] = os.path.basename(filepath)
-        
+        df["_tipo_archivo"] = tipo
+        df["_periodo"] = periodo
+        df["_archivo_origen"] = os.path.basename(filepath)
+
+        nombre_archivo = os.path.basename(filepath).lower()
+        df["manager"] = "Ian" if "ian" in nombre_archivo else "General"
+
         return df
-        
+
     except Exception as e:
         print(f"  -> Error cargando {filepath}: {e}")
         return None
 
+# -----------------------------------------------------------------------------
+# CLIENTES
+# -----------------------------------------------------------------------------
 
 def cargar_datos_cliente(cliente):
-    """
-    Carga todos los archivos de un cliente: 30d, 7d e históricos.
-    Detecta automáticamente el tipo de cada archivo.
-    
-    Args:
-        cliente: Nombre del cliente (ej: "Panichella")
-        
-    Returns:
-        dict con keys '30d', '7d', 'historico' conteniendo DataFrames
-    """
-    data = {
-        '30d': pd.DataFrame(),
-        '7d': pd.DataFrame(),
-        'historico': pd.DataFrame()
-    }
-    
-    # Buscar todos los archivos del cliente
-    patron = f"{CRUDA_DIR}/{cliente}-*.xlsx"
-    archivos = glob.glob(patron)
-    
-    if not archivos:
-        # Intentar sin guión
-        patron = f"{CRUDA_DIR}/{cliente}*.xlsx"
-        archivos = glob.glob(patron)
-    
+    data = {"30d": None, "7d": None, "historico": None}
+    print("[1/8] Cargando datos...")
+
+    cliente_regex = re.compile(cliente, re.IGNORECASE)
+    archivos = []
+
+    for ext in ("*.xlsx", "*.xlxs"):
+        for f in glob.glob(os.path.join(CRUDA_DIR, ext)):
+            if cliente_regex.search(os.path.basename(f)):
+                archivos.append(f)
+
+    archivos = list(set(archivos))
     print(f"  -> Archivos encontrados: {len(archivos)}")
-    
-    hist_list = []
-    
+
+    hist = []
+
     for filepath in archivos:
         tipo, periodo = detectar_tipo_archivo(filepath)
         df = cargar_archivo(filepath)
-        
+
         if df is None:
             continue
-            
-        if tipo == '7d':
-            data['7d'] = df
-            print(f"     [7D] {os.path.basename(filepath)}: {len(df)} anuncios")
-            
-        elif tipo == '30d':
-            data['30d'] = df
-            print(f"     [30D] {os.path.basename(filepath)}: {len(df)} anuncios")
-            
-        elif tipo == 'mes':
-            df['periodo'] = periodo
-            hist_list.append(df)
-            print(f"     [HIST-{periodo.upper()}] {os.path.basename(filepath)}: {len(df)} anuncios")
-    
-    # Combinar históricos
-    if hist_list:
-        data['historico'] = pd.concat(hist_list, ignore_index=True)
-    
+
+        if tipo == "30d":
+            data["30d"] = df
+            print(f"     [30D] {os.path.basename(filepath)} ({len(df)})")
+        elif tipo == "7d":
+            data["7d"] = df
+            print(f"     [7D] {os.path.basename(filepath)} ({len(df)})")
+        elif tipo == "mes":
+            df["periodo"] = periodo
+            hist.append(df)
+            print(f"     [HIST-{periodo.upper()}] {os.path.basename(filepath)} ({len(df)})")
+
+    if data["30d"] is None:
+        raise RuntimeError("No se encontraron datos válidos de 30 días")
+
+    if hist:
+        data["historico"] = pd.concat(hist, ignore_index=True)
+
     return data
 
-
 def identificar_clientes():
-    """
-    Escanea la carpeta crudo/ para identificar clientes disponibles.
-    
-    Returns:
-        Lista ordenada de nombres de cliente únicos
-    """
-    archivos = glob.glob(f"{CRUDA_DIR}/*.xlsx")
+    archivos = glob.glob(os.path.join(CRUDA_DIR, "*.xlsx")) + glob.glob(
+        os.path.join(CRUDA_DIR, "*.xlxs")
+    )
+
     clientes = set()
-    
     for f in archivos:
-        nombre_base = os.path.basename(f)
-        # Extraer nombre del cliente (antes del primer guión o guión bajo)
-        match = re.match(r'^([A-Za-z0-9]+)', nombre_base)
-        if match:
-            clientes.add(match.group(1))
-    
-    return sorted(list(clientes))
+        nombre = os.path.splitext(os.path.basename(f))[0]
+        cliente = re.split(r"[-_]", nombre)[0].upper().strip()
+        if len(cliente) > 2:
+            clientes.add(cliente)
+
+    return sorted(clientes)

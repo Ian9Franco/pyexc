@@ -7,28 +7,54 @@ import pandas as pd
 import numpy as np
 from config import PESOS_CONVERSIONES, PESOS_POR_OBJETIVO, UMBRALES
 
+def limpiar_columnas_duplicadas(df):
+    """
+    Elimina columnas duplicadas conservando la primera
+    """
+    return df.loc[:, ~df.columns.duplicated()]
+
 
 def calcular_score_basico(df):
     """
     Calcula el score básico ponderado de conversiones para cada anuncio.
-    Este es el score tradicional basado en acciones.
-    
-    Formula:
-        score = Σ(metrica × peso)
-        
-    Returns:
-        DataFrame con columna 'score' añadida
+    FIX: maneja columnas duplicadas y asegura Series válidas.
     """
+    # 🔑 FIX CLAVE
+    df = limpiar_columnas_duplicadas(df)
+
+    # Asegurar columnas base
+    columnas_score = [
+        "results",
+        "msg_init",
+        "msg_contacts",
+        "link_clicks",
+        "ig_profile",
+        "leads",
+        "purchases",
+    ]
+
+    for col in columnas_score:
+        if col not in df.columns:
+            df[col] = 0
+
+        # Si quedó como DataFrame (por duplicados previos)
+        if isinstance(df[col], pd.DataFrame):
+            df[col] = df[col].iloc[:, 0]
+
+        df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
     df["score"] = (
-        df["results"] * PESOS_CONVERSIONES['results'] +
-        df["msg_init"] * PESOS_CONVERSIONES['msg_init'] +
-        df["msg_contacts"] * PESOS_CONVERSIONES['msg_contacts'] +
-        df["link_clicks"] * PESOS_CONVERSIONES['link_clicks'] +
-        df["ig_profile"] * PESOS_CONVERSIONES['ig_profile'] +
-        df.get("leads", pd.Series([0]*len(df))) * PESOS_CONVERSIONES.get('leads', 1.0) +
-        df.get("purchases", pd.Series([0]*len(df))) * PESOS_CONVERSIONES.get('purchases', 2.0)
+        df["results"] * PESOS_CONVERSIONES.get("results", 1.0) +
+        df["msg_init"] * PESOS_CONVERSIONES.get("msg_init", 0.0) +
+        df["msg_contacts"] * PESOS_CONVERSIONES.get("msg_contacts", 0.0) +
+        df["link_clicks"] * PESOS_CONVERSIONES.get("link_clicks", 0.0) +
+        df["ig_profile"] * PESOS_CONVERSIONES.get("ig_profile", 0.0) +
+        df["leads"] * PESOS_CONVERSIONES.get("leads", 1.0) +
+        df["purchases"] * PESOS_CONVERSIONES.get("purchases", 2.0)
     )
+
     return df
+
 
 
 def calcular_score_normalizado(df, objetivo='general'):

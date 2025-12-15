@@ -4,7 +4,7 @@ Genera rankings, estadísticas, análisis comparativos y detección de anomalía
 """
 import pandas as pd
 from config import UMBRALES, ANOMALIAS
-
+from metrics import calcular_score_basico # Se añade esta importación si no existía para la función historico
 
 def generar_rankings(df):
     """
@@ -222,7 +222,7 @@ def generar_historico(df_hist):
     if df_hist.empty:
         return []
     
-    from metrics import calcular_score_basico
+    # from metrics import calcular_score_basico # Se asume importada arriba o en main
     df_hist = calcular_score_basico(df_hist)
     
     # Agrupar por período
@@ -279,3 +279,41 @@ def analizar_por_objetivo(df):
         }
     
     return analisis
+
+
+def analizar_rendimiento_managers(df):
+    """
+    Compara el rendimiento de las campañas de 'Ian' vs 'General'.
+    
+    Returns:
+        dict con métricas comparativas o None si solo hay un manager.
+    """
+    if 'manager' not in df.columns or len(df['manager'].unique()) < 2:
+        return None
+        
+    # Agrupar métricas clave por manager
+    comparativa = df.groupby('manager').agg({
+        'spend': 'sum',
+        'score': 'sum',
+        'ad_name': 'count',
+        'cpa': 'mean', # Promedio simple para referencia
+        'score_100': 'mean' # Calidad promedio de anuncios
+    }).reset_index()
+    
+    resultado = {}
+    
+    for _, row in comparativa.iterrows():
+        # Recalcular CPA real (Gasto Total / Score Total)
+        score = row.get('score', 0)
+        spend = row.get('spend', 0)
+        cpa_real = spend / score if score > 0 else 0
+        
+        resultado[row['manager']] = {
+            'gasto': spend,
+            'conversiones': score,
+            'cpa_real': cpa_real,
+            'calidad_promedio': row.get('score_100', 0),
+            'cant_anuncios': row['ad_name']
+        }
+        
+    return resultado

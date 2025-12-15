@@ -1,441 +1,194 @@
-"""
-Módulo de generación de PDF V4.
-Genera informes profesionales con charts, tablas y recomendaciones.
-Usa reportlab para crear PDFs de alta calidad.
-"""
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
+from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from pathlib import Path
 from datetime import datetime
 import os
 
-# Intentar importar reportlab
-try:
-    from reportlab.lib import colors
-    from reportlab.lib.pagesizes import A4
-    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-    from reportlab.lib.units import cm, mm
-    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
-    from reportlab.platypus import Image as RLImage
-    from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
-    REPORTLAB_AVAILABLE = True
-except ImportError:
-    REPORTLAB_AVAILABLE = False
-    print("[AVISO] reportlab no disponible. Instalar con: pip install reportlab")
+BASE_DIR = Path(__file__).resolve().parent.parent
+FONTS_DIR = BASE_DIR / "assets" / "fonts"
+LOGO_PATH = BASE_DIR / "assets" / "fanger_logo.png"
 
-from config import PDF_CONFIG, INFORMES_DIR
+# Colors
+YELLOW = colors.HexColor("#D6DB2A")
+DARK = colors.HexColor("#0B0F19")
+TEXT = colors.HexColor("#1F2933")
+MUTED = colors.HexColor("#8F8F8F")
+BG = colors.HexColor("#F8FAFC")
+BORDER = colors.HexColor("#E5E7EB")
 
+def register_fonts():
+    pdfmetrics.registerFont(TTFont("DM", FONTS_DIR / "DMSans-Regular.ttf"))
+    pdfmetrics.registerFont(TTFont("DM-Medium", FONTS_DIR / "DMSans-Medium.ttf"))
+    pdfmetrics.registerFont(TTFont("DM-Bold", FONTS_DIR / "DMSans-Bold.ttf"))
 
-def crear_estilos():
-    """
-    Crea los estilos personalizados para el PDF.
-    
-    Returns:
-        dict con estilos de párrafo
-    """
-    styles = getSampleStyleSheet()
-    
-    # Título principal
-    styles.add(ParagraphStyle(
-        name='TituloPrincipal',
-        parent=styles['Heading1'],
-        fontSize=24,
-        spaceAfter=30,
-        textColor=colors.HexColor('#1a365d'),
-        alignment=TA_CENTER
-    ))
-    
-    # Subtítulo
-    styles.add(ParagraphStyle(
-        name='Subtitulo',
-        parent=styles['Heading2'],
-        fontSize=16,
-        spaceAfter=12,
-        spaceBefore=20,
-        textColor=colors.HexColor('#2c5282')
-    ))
-    
-    # Sección
-    styles.add(ParagraphStyle(
-        name='Seccion',
-        parent=styles['Heading3'],
-        fontSize=14,
-        spaceAfter=10,
-        spaceBefore=15,
-        textColor=colors.HexColor('#2d3748')
-    ))
-    
-    # Texto normal
-    styles.add(ParagraphStyle(
-        name='TextoNormal',
-        parent=styles['Normal'],
-        fontSize=10,
-        spaceAfter=6,
-        leading=14
-    ))
-    
-    # Texto destacado
-    styles.add(ParagraphStyle(
-        name='Destacado',
-        parent=styles['Normal'],
-        fontSize=11,
-        spaceAfter=8,
-        textColor=colors.HexColor('#2b6cb0'),
-        fontName='Helvetica-Bold'
-    ))
-    
-    # Alerta
-    styles.add(ParagraphStyle(
-        name='Alerta',
-        parent=styles['Normal'],
-        fontSize=10,
-        spaceAfter=6,
-        textColor=colors.HexColor('#c53030'),
-        backColor=colors.HexColor('#fed7d7'),
-        borderPadding=5
-    ))
-    
-    return styles
-
-
-def crear_tabla_resumen(resumen, mediana_cpa):
-    """
-    Crea la tabla de resumen de la cuenta.
-    
-    Args:
-        resumen: dict con métricas de resumen
-        mediana_cpa: float con la mediana del CPA
-        
-    Returns:
-        Table de reportlab
-    """
-    datos = [
-        ['Métrica', 'Valor', 'Descripción'],
-        ['Gasto Total', f"${resumen['gasto_total']:,.2f}", 'Inversión total en el período'],
-        ['Conversiones (Score)', f"{resumen['score_total']:.1f}", 'Total de acciones ponderadas'],
-        ['CPA Global', f"${resumen['cpa_global']:,.2f}", 'Costo por adquisición promedio'],
-        ['CPA Mediana', f"${mediana_cpa:,.2f}", 'Punto de referencia'],
-        ['Score Promedio (0-100)', f"{resumen.get('score_100_promedio', 0):.1f}", 'Rendimiento promedio normalizado'],
-        ['Total Anuncios', str(resumen['total_anuncios']), 'Anuncios analizados'],
-        ['Con Conversiones', str(resumen['con_conversiones']), 'Anuncios que generaron resultados'],
-    ]
-    
-    tabla = Table(datos, colWidths=[4*cm, 3*cm, 7*cm])
-    tabla.setStyle(TableStyle([
-        # Encabezado
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#2c5282')),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
-        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('FONTSIZE', (0, 0), (-1, 0), 11),
-        ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
-        # Cuerpo
-        ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
-        ('FONTSIZE', (0, 1), (-1, -1), 9),
-        ('ALIGN', (1, 1), (1, -1), 'RIGHT'),
-        # Bordes y padding
-        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
-        ('TOPPADDING', (0, 0), (-1, -1), 6),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
-        # Alternar colores de filas
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f7fafc')]),
-    ]))
-    
-    return tabla
-
-
-def crear_tabla_clasificacion(resumen):
-    """
-    Crea tabla con la distribución de clasificaciones.
-    """
-    clasificacion = resumen.get('clasificacion', {})
-    tendencia = resumen.get('tendencia', {})
-    
-    datos = [
-        ['Clasificación', 'Cantidad', 'Tendencia', 'Cantidad'],
-        ['🏆 Héroes', str(clasificacion.get('heroes', 0)), '📈 En Ascenso', str(tendencia.get('en_ascenso', 0))],
-        ['✅ Sanos', str(clasificacion.get('sanos', 0)), '➡️ Estables', str(tendencia.get('estables', 0))],
-        ['⚠️ Alerta', str(clasificacion.get('alertas', 0)), '📉 En Caída', str(tendencia.get('en_caida', 0))],
-        ['💀 Muertos', str(clasificacion.get('muertos', 0)), '🚨 Críticos', str(tendencia.get('criticos', 0))],
-    ]
-    
-    tabla = Table(datos, colWidths=[3.5*cm, 2*cm, 3.5*cm, 2*cm])
-    tabla.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#4a5568')),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
-        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
-        ('TOPPADDING', (0, 0), (-1, -1), 6),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
-    ]))
-    
-    return tabla
-
-
-def crear_tabla_ranking(ranking, titulo, columnas):
-    """
-    Crea tabla para un ranking específico.
-    
-    Args:
-        ranking: list de dicts con datos del ranking
-        titulo: str con nombre del ranking
-        columnas: list de tuples (nombre_mostrar, key, ancho)
-    """
-    if not ranking:
-        return None
-    
-    # Encabezados
-    headers = [col[0] for col in columnas]
-    datos = [headers]
-    
-    # Filas
-    for item in ranking[:5]:
-        fila = []
-        for _, key, _ in columnas:
-            valor = item.get(key, '')
-            if isinstance(valor, float):
-                if 'cpa' in key.lower() or 'gasto' in key.lower() or 'spend' in key.lower():
-                    fila.append(f"${valor:,.0f}")
-                elif 'score' in key.lower() and '100' not in key:
-                    fila.append(f"{valor:.1f}")
-                else:
-                    fila.append(f"{valor:.1f}")
-            else:
-                # Truncar nombres largos
-                if key == 'ad_name':
-                    fila.append(str(valor)[:35] + '...' if len(str(valor)) > 35 else str(valor))
-                else:
-                    fila.append(str(valor))
-        datos.append(fila)
-    
-    anchos = [col[2]*cm for col in columnas]
-    tabla = Table(datos, colWidths=anchos)
-    tabla.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#48bb78')),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
-        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('FONTSIZE', (0, 0), (-1, -1), 8),
-        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-        ('ALIGN', (1, 0), (-1, -1), 'CENTER'),
-        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
-        ('TOPPADDING', (0, 0), (-1, -1), 4),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f0fff4')]),
-    ]))
-    
-    return tabla
-
-
-def crear_tabla_acciones(acciones):
-    """
-    Crea tabla de acciones urgentes.
-    """
-    if not acciones:
-        return None
-    
-    datos = [['Tipo', 'Anuncio', 'Razón', 'Acción']]
-    
-    for accion in acciones[:10]:
-        datos.append([
-            accion['tipo'],
-            accion['nombre'][:25] + '...' if len(accion['nombre']) > 25 else accion['nombre'],
-            accion['razon'][:40] + '...' if len(accion['razon']) > 40 else accion['razon'],
-            accion['accion'][:30] + '...' if len(accion['accion']) > 30 else accion['accion']
-        ])
-    
-    tabla = Table(datos, colWidths=[2*cm, 4*cm, 5*cm, 4*cm])
-    tabla.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#e53e3e')),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
-        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('FONTSIZE', (0, 0), (-1, -1), 8),
-        ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
-        ('TOPPADDING', (0, 0), (-1, -1), 4),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#fff5f5')]),
-    ]))
-    
-    return tabla
-
-
-def generar_pdf(cliente, resumen, rankings, candidatos_duplicar, 
-                acciones_urgentes, anomalias, historico, mediana_cpa):
-    """
-    Genera el informe completo en PDF.
-    
-    Args:
-        cliente: Nombre del cliente
-        resumen: dict con resumen de métricas
-        rankings: dict con rankings
-        candidatos_duplicar: list de candidatos
-        acciones_urgentes: list de acciones
-        anomalias: list de anomalías detectadas
-        historico: list con datos históricos
-        mediana_cpa: float con mediana del CPA
-        
-    Returns:
-        str: Ruta al PDF generado, o None si hay error
-    """
-    if not REPORTLAB_AVAILABLE:
-        print("  [ERROR] reportlab no disponible para generar PDF")
-        return None
-    
-    fecha = datetime.now().strftime("%Y-%m-%d")
-    pdf_path = f"{INFORMES_DIR}/{cliente}-informe-{fecha}.pdf"
-    
-    try:
-        doc = SimpleDocTemplate(
-            pdf_path,
-            pagesize=A4,
-            rightMargin=2*cm,
-            leftMargin=2*cm,
-            topMargin=2*cm,
-            bottomMargin=2*cm
+def footer(canvas, doc):
+    w, _ = A4
+    if LOGO_PATH.exists():
+        canvas.drawImage(
+            str(LOGO_PATH),
+            w - 3.2 * cm,
+            0.8 * cm,
+            width=2.2 * cm,
+            height=2.2 * cm,
+            preserveAspectRatio=True,
+            mask="auto",
         )
-        
-        styles = crear_estilos()
-        elementos = []
-        
-        # === PORTADA ===
-        elementos.append(Spacer(1, 3*cm))
-        elementos.append(Paragraph(
-            f"INFORME META ADS",
-            styles['TituloPrincipal']
+    canvas.setFont("DM", 7)
+    canvas.setFillColor(MUTED)
+    canvas.drawRightString(
+        w - 3.4 * cm,
+        0.5 * cm,
+        f"Fanger · Performance Marketing · {datetime.now().strftime('%d/%m/%Y')}",
+    )
+
+def generar_pdf(
+    cliente,
+    resumen,
+    rankings,
+    candidatos_duplicar,
+    acciones_urgentes,
+    anomalias,
+    historico,
+    mediana_cpa,
+    output_dir="informes",
+):
+    try:
+        register_fonts()
+        os.makedirs(output_dir, exist_ok=True)
+        path = f"{output_dir}/{cliente}-informe.pdf"
+
+        doc = SimpleDocTemplate(
+            path,
+            pagesize=A4,
+            rightMargin=1.5 * cm,
+            leftMargin=1.5 * cm,
+            topMargin=2.2 * cm,   # ⬅️ MÁS AIRE ARRIBA
+            bottomMargin=2.8 * cm,
+        )
+
+        styles = getSampleStyleSheet()
+
+        styles.add(ParagraphStyle(
+            name="Client",
+            fontName="DM-Bold",
+            fontSize=22,
+            textColor=DARK,
+            spaceAfter=6,
         ))
-        elementos.append(Paragraph(
-            cliente.upper(),
-            styles['TituloPrincipal']
+
+        styles.add(ParagraphStyle(
+            name="Subtitle",
+            fontName="DM",
+            fontSize=10,
+            textColor=MUTED,
+            spaceAfter=14,
         ))
-        elementos.append(Spacer(1, 1*cm))
-        elementos.append(Paragraph(
-            f"Fecha: {fecha}",
-            ParagraphStyle('Fecha', parent=styles['TextoNormal'], alignment=TA_CENTER, fontSize=12)
+
+        styles.add(ParagraphStyle(
+            name="Section",
+            fontName="DM-Medium",
+            fontSize=12,
+            textColor=DARK,
+            backColor=BG,
+            borderPadding=6,
+            spaceBefore=16,
+            spaceAfter=8,
         ))
-        elementos.append(Paragraph(
-            "Análisis completo de rendimiento publicitario",
-            ParagraphStyle('Subtit', parent=styles['TextoNormal'], alignment=TA_CENTER, fontSize=11)
+
+        styles.add(ParagraphStyle(
+            name="Body",
+            fontName="DM",
+            fontSize=9,
+            leading=12,
+            textColor=TEXT,
+            spaceAfter=6,
         ))
-        elementos.append(PageBreak())
-        
-        # === RESUMEN EJECUTIVO ===
-        elementos.append(Paragraph("RESUMEN EJECUTIVO", styles['Subtitulo']))
-        elementos.append(crear_tabla_resumen(resumen, mediana_cpa))
-        elementos.append(Spacer(1, 0.5*cm))
-        
-        # Distribución
-        elementos.append(Paragraph("Distribución de Anuncios", styles['Seccion']))
-        elementos.append(crear_tabla_clasificacion(resumen))
-        elementos.append(Spacer(1, 0.5*cm))
-        
-        # === ACCIONES URGENTES ===
-        if acciones_urgentes:
-            elementos.append(Paragraph("⚠️ ACCIONES URGENTES", styles['Subtitulo']))
-            tabla_acciones = crear_tabla_acciones(acciones_urgentes)
-            if tabla_acciones:
-                elementos.append(tabla_acciones)
-            elementos.append(Spacer(1, 0.5*cm))
-        
-        # === RANKINGS ===
-        elementos.append(PageBreak())
-        elementos.append(Paragraph("📊 RANKINGS DE ANUNCIOS", styles['Subtitulo']))
-        
-        # Ranking por Impacto
-        if rankings.get('impacto'):
-            elementos.append(Paragraph("🏆 Top por Impacto (Mayor Score)", styles['Seccion']))
-            tabla = crear_tabla_ranking(rankings['impacto'], 'Impacto', [
-                ('Anuncio', 'ad_name', 5),
-                ('Score', 'score', 2),
-                ('CPA', 'cpa', 2),
-                ('Estado', 'actividad', 2.5)
-            ])
-            if tabla:
-                elementos.append(tabla)
-            elementos.append(Spacer(1, 0.3*cm))
-        
-        # Ranking por Eficiencia
-        if rankings.get('eficiencia'):
-            elementos.append(Paragraph("⚡ Top por Eficiencia (Menor CPA)", styles['Seccion']))
-            tabla = crear_tabla_ranking(rankings['eficiencia'], 'Eficiencia', [
-                ('Anuncio', 'ad_name', 5),
-                ('CPA', 'cpa', 2),
-                ('Score', 'score', 2),
-                ('Eficiencia', 'eficiencia', 2.5)
-            ])
-            if tabla:
-                elementos.append(tabla)
-            elementos.append(Spacer(1, 0.3*cm))
-        
-        # Ranking Héroes
-        if rankings.get('heroes'):
-            elementos.append(Paragraph("🌟 Top Héroes (Score 0-100)", styles['Seccion']))
-            tabla = crear_tabla_ranking(rankings['heroes'], 'Heroes', [
-                ('Anuncio', 'ad_name', 5),
-                ('Score 100', 'score_100', 2),
-                ('Clasificación', 'clasificacion', 2.5),
-                ('Tendencia', 'tendencia', 2)
-            ])
-            if tabla:
-                elementos.append(tabla)
-        
-        # === CANDIDATOS PARA ESCALAR ===
-        if candidatos_duplicar:
-            elementos.append(PageBreak())
-            elementos.append(Paragraph("🚀 ANUNCIOS PARA ESCALAR", styles['Subtitulo']))
-            
-            for i, candidato in enumerate(candidatos_duplicar[:3], 1):
-                elementos.append(Paragraph(
-                    f"#{i}: {candidato['nombre'][:50]}",
-                    styles['Destacado']
-                ))
-                elementos.append(Paragraph(
-                    f"Score: {candidato['score']:.1f} | CPA: ${candidato['cpa']:.0f} | "
-                    f"Estado: {candidato['actividad']} | Tendencia: {candidato.get('tendencia', 'N/A')}",
-                    styles['TextoNormal']
-                ))
-                for razon in candidato['razones'][:3]:
-                    elementos.append(Paragraph(f"• {razon}", styles['TextoNormal']))
-                elementos.append(Spacer(1, 0.3*cm))
-        
-        # === ANOMALÍAS ===
-        if anomalias:
-            elementos.append(Paragraph("🔍 ANOMALÍAS DETECTADAS", styles['Subtitulo']))
-            for anomalia in anomalias[:5]:
-                elementos.append(Paragraph(
-                    f"[{anomalia['severidad']}] {anomalia['tipo']}: {anomalia['anuncio'][:40]}",
-                    styles['Alerta'] if anomalia['severidad'] == 'ALTA' else styles['TextoNormal']
-                ))
-                elementos.append(Paragraph(f"   {anomalia['mensaje']}", styles['TextoNormal']))
-                elementos.append(Paragraph(f"   Acción: {anomalia['accion']}", styles['TextoNormal']))
-                elementos.append(Spacer(1, 0.2*cm))
-        
-        # === HISTÓRICO ===
-        if historico:
-            elementos.append(PageBreak())
-            elementos.append(Paragraph("📈 CONTEXTO HISTÓRICO", styles['Subtitulo']))
-            
-            datos_hist = [['Período', 'Score', 'Gasto', 'CPA', 'Anuncios']]
-            for h in historico:
-                datos_hist.append([
-                    h['periodo'].upper(),
-                    f"{h['score']:.1f}",
-                    f"${h['gasto']:,.0f}",
-                    f"${h['cpa']:,.0f}" if h['cpa'] > 0 else "N/A",
-                    str(h['anuncios'])
+
+        story = []
+
+        # ---------------- HEADER ----------------
+        story.append(Paragraph(cliente.upper(), styles["Client"]))
+        story.append(Paragraph("Meta Ads Performance Report", styles["Subtitle"]))
+        story.append(Spacer(1, 6))  # ⬅️ CLAVE
+
+        story.append(Paragraph(
+            f"<font size='18' color='#D6DB2A'><b>${mediana_cpa:.2f}</b></font> "
+            f"<font size='9' color='#8F8F8F'>CPA mediana · últimos 30 días</font>",
+            styles["Body"],
+        ))
+
+        story.append(Spacer(1, 14))  # ⬅️ CLAVE
+
+        # ---------------- KPIs ----------------
+        kpis = [
+            ["Gasto total", f"${resumen['gasto_total']:.0f}"],
+            ["Score total", f"{resumen['score_total']:.0f}"],
+            ["Anuncios", resumen["total_anuncios"]],
+            ["Activos", resumen["actividad"]["activos"]],
+        ]
+
+        t = Table(kpis, colWidths=[4 * cm, 3 * cm] * 2)
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), BG),
+            ("FONT", (0, 0), (-1, -1), "DM-Medium", 10),
+            ("GRID", (0, 0), (-1, -1), 0.25, BORDER),
+            ("ALIGN", (1, 0), (-1, -1), "RIGHT"),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ("TOPPADDING", (0, 0), (-1, -1), 6),
+        ]))
+        story.append(t)
+
+        # ---------------- RESUMEN ----------------
+        story.append(Paragraph("Resumen ejecutivo", styles["Section"]))
+        story.append(Paragraph(
+            "La cuenta presenta una inversión estable con oportunidades claras de optimización. "
+            "Se detecta gasto relevante en anuncios con baja eficiencia y potencial de escalado "
+            "en piezas con mejor performance.",
+            styles["Body"],
+        ))
+
+        # ---------------- RANKINGS ----------------
+        def ranking(title, items):
+            story.append(Paragraph(title, styles["Section"]))
+            data = [["Anuncio", "Score", "CPA"]]
+            for a in items[:5]:
+                data.append([
+                    a["ad_name"][:42],
+                    f"{a['score']:.0f}",
+                    f"${a['cpa']:.1f}" if a.get("cpa") else "-",
                 ])
-            
-            tabla_hist = Table(datos_hist, colWidths=[2.5*cm, 2.5*cm, 3*cm, 2.5*cm, 2*cm])
-            tabla_hist.setStyle(TableStyle([
-                ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#805ad5')),
-                ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
-                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-                ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                ('GRID', (0, 0), (-1, -1), 0.5, colors.grey),
-                ('TOPPADDING', (0, 0), (-1, -1), 6),
-                ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+            table = Table(data, colWidths=[8 * cm, 2 * cm, 2 * cm])
+            table.setStyle(TableStyle([
+                ("BACKGROUND", (0, 0), (-1, 0), YELLOW),
+                ("FONT", (0, 0), (-1, 0), "DM-Bold", 9),
+                ("FONT", (0, 1), (-1, -1), "DM", 9),
+                ("GRID", (0, 0), (-1, -1), 0.25, BORDER),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                ("TOPPADDING", (0, 0), (-1, -1), 4),
             ]))
-            elementos.append(tabla_hist)
-        
-        # Generar PDF
-        doc.build(elementos)
-        return pdf_path
-        
+            story.append(table)
+
+        ranking("Top impacto", rankings["impacto"])
+        ranking("Top eficiencia", rankings["eficiencia"])
+
+        # ---------------- ACCIONES ----------------
+        if acciones_urgentes:
+            story.append(Paragraph("Acciones prioritarias", styles["Section"]))
+            for a in acciones_urgentes:
+                story.append(Paragraph(
+                    f"<b>{a['tipo']}</b> — {a['nombre']}<br/>"
+                    f"<font color='#8F8F8F'>{a['razon']}</font>",
+                    styles["Body"],
+                ))
+
+        doc.build(story, onFirstPage=footer, onLaterPages=footer)
+        return path
+
     except Exception as e:
-        print(f"  [ERROR] Generando PDF: {e}")
+        print(f"[ERROR PDF] {e}")
         return None

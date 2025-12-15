@@ -275,6 +275,61 @@ def formatear_historico(historico):
     return lines
 
 
+def formatear_comparativa_managers(comparativa):
+    """Genera la sección de comparación Ian vs General."""
+    if not comparativa or len(comparativa) < 2:
+        return []
+        
+    lines = [
+        "## G: COMPARATIVA DE GESTIÓN (IAN vs GENERAL)",
+        "=" * 60,
+        ""
+    ]
+    
+    # Encabezados
+    lines.append(f"{'MANAGER':<10} | {'GASTO':<12} | {'CONV.':<8} | {'CPA':<10} | {'CALIDAD'}")
+    lines.append("-" * 60)
+    
+    # Asegurar orden
+    managers = sorted(comparativa.keys())
+    
+    for manager in managers:
+        metrics = comparativa[manager]
+        # Formato de gasto y conversiones con separador de miles
+        gasto_str = f"${metrics['gasto']:,.0f}" 
+        conv_str = f"{metrics['conversiones']:,.1f}"
+        cpa_str = f"${metrics['cpa_real']:,.0f}" if metrics['cpa_real'] > 0 else "N/A"
+        calidad_str = f"{metrics['calidad_promedio']:.1f}/100"
+        
+        lines.append(
+            f"{manager:<10} | "
+            f"{gasto_str:<12} | "
+            f"{conv_str:<8} | "
+            f"{cpa_str:<10} | "
+            f"{calidad_str}"
+        )
+    
+    lines.append("")
+    
+    # Conclusión rápida
+    if 'Ian' in comparativa and 'General' in comparativa:
+        cpa_ian = comparativa['Ian']['cpa_real']
+        cpa_gen = comparativa['General']['cpa_real']
+        
+        if cpa_ian > 0 and cpa_gen > 0:
+            if cpa_ian < cpa_gen:
+                diff = ((cpa_gen - cpa_ian) / cpa_gen) * 100
+                lines.append(f"✅ Las campañas de Ian son un {diff:.1f}% más eficientes en costos (CPA).")
+            elif cpa_ian > cpa_gen:
+                diff = ((cpa_ian - cpa_gen) / cpa_gen) * 100
+                lines.append(f"⚠️ Las campañas de Ian tienen un CPA un {diff:.1f}% más alto que el promedio general.")
+            else:
+                lines.append(f"↔️ Las campañas de Ian y General tienen un CPA similar.")
+            
+    lines.extend(["", ""])
+    return lines
+
+
 def generar_informe_txt(cliente, resumen, rankings, candidatos_duplicar, 
                         no_candidatos, acciones_urgentes, anomalias,
                         historico, df, mediana_cpa):
@@ -285,6 +340,15 @@ def generar_informe_txt(cliente, resumen, rankings, candidatos_duplicar,
         str con el contenido del informe
     """
     fecha = datetime.now().strftime("%Y-%m-%d %H:%M")
+    
+    # === Nuevo: Importar y calcular la comparativa de managers ===
+    try:
+        # Se asume que analyzer.py está en el mismo path.
+        from analyzer import analizar_rendimiento_managers
+        comparativa_managers = analizar_rendimiento_managers(df)
+    except ImportError:
+        comparativa_managers = None
+    # =============================================================
     
     lines = [
         "╔" + "═" * 58 + "╗",
@@ -301,6 +365,11 @@ def generar_informe_txt(cliente, resumen, rankings, candidatos_duplicar,
     lines.extend(formatear_duplicar(candidatos_duplicar, no_candidatos, mediana_cpa))
     lines.extend(formatear_anomalias(anomalias))
     lines.extend(formatear_historico(historico))
+    
+    # === Nuevo: Agregar la sección de comparativa ===
+    if comparativa_managers:
+        lines.extend(formatear_comparativa_managers(comparativa_managers))
+    # ================================================
     
     lines.extend([
         "",
