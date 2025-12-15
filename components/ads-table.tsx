@@ -108,7 +108,9 @@ export function AdsTable({ anuncios, medianaCpa }: AdsTableProps) {
                     {ad.cpa ? `$${ad.cpa.toLocaleString("es-AR", { maximumFractionDigits: 0 })}` : "N/A"}
                   </td>
                   <td className="py-3 px-4 text-right font-mono text-foreground">
-                    ${ad.gasto.toLocaleString("es-AR", { maximumFractionDigits: 0 })}
+                    {typeof ad.gasto === "number"
+                        ? `$${ad.gasto.toLocaleString("es-AR", { maximumFractionDigits: 0 })}`
+                        : "—"}
                   </td>
                   <td className="py-3 px-4 text-right font-mono text-muted-foreground">{ad.score_7d.toFixed(1)}</td>
                   <td className="py-3 px-4">

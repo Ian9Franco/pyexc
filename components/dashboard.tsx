@@ -1,7 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowLeft, HelpCircle, Activity, Zap, PauseCircle } from "lucide-react"
+import {
+  ArrowLeft,
+  HelpCircle,
+  Activity,
+  Zap,
+  PauseCircle,
+  TrendingUp,
+  AlertTriangle,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { KpiCards } from "@/components/kpi-cards"
@@ -20,7 +28,15 @@ interface DashboardProps {
 export function Dashboard({ data, onReset }: DashboardProps) {
   const [showGlosario, setShowGlosario] = useState(false)
 
-  const { activos, gastando, inactivos } = data.resumen.actividad
+  const actividad = data.resumen?.actividad ?? {
+    activos: 0,
+    gastando: 0,
+    inactivos: 0,
+  }
+
+  const { activos, gastando, inactivos } = actividad
+
+  const tieneHistorico = Array.isArray(data.historico) && data.historico.length > 0
 
   return (
     <div className="min-h-screen">
@@ -32,8 +48,13 @@ export function Dashboard({ data, onReset }: DashboardProps) {
               <ArrowLeft className="w-4 h-4" />
             </Button>
             <div>
-              <h1 className="text-xl font-semibold text-foreground">{data.meta.cliente}</h1>
-              <p className="text-sm text-muted-foreground">Reporte del {data.meta.fecha}</p>
+              <h1 className="text-xl font-semibold text-foreground">
+                {data.meta?.cliente ?? "Cliente"}
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                Reporte del {data.meta?.fecha_generacion}
+
+              </p>
             </div>
           </div>
 
@@ -70,7 +91,7 @@ export function Dashboard({ data, onReset }: DashboardProps) {
             <TabsTrigger value="rankings">Rankings</TabsTrigger>
             <TabsTrigger value="acciones">Acciones</TabsTrigger>
             <TabsTrigger value="anuncios">Todos los Anuncios</TabsTrigger>
-            <TabsTrigger value="historico">Historico</TabsTrigger>
+            {tieneHistorico && <TabsTrigger value="historico">Histórico</TabsTrigger>}
           </TabsList>
 
           <TabsContent value="rankings" className="mt-6">
@@ -78,16 +99,22 @@ export function Dashboard({ data, onReset }: DashboardProps) {
           </TabsContent>
 
           <TabsContent value="acciones" className="mt-6">
-            <ActionCards duplicar={data.duplicar} urgentes={data.acciones_urgentes} medianaCpa={data.mediana_cpa} />
+            <ActionCards
+              duplicar={data.duplicar}
+              urgentes={data.acciones_urgentes}
+              medianaCpa={data.mediana_cpa}
+            />
           </TabsContent>
 
           <TabsContent value="anuncios" className="mt-6">
             <AdsTable anuncios={data.anuncios} medianaCpa={data.mediana_cpa} />
           </TabsContent>
 
-          <TabsContent value="historico" className="mt-6">
-            <HistoricoChart historico={data.historico} />
-          </TabsContent>
+          {tieneHistorico && (
+            <TabsContent value="historico" className="mt-6">
+              <HistoricoChart historico={data.historico} />
+            </TabsContent>
+          )}
         </Tabs>
       </div>
 

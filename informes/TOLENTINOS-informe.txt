@@ -1,0 +1,277 @@
+╔══════════════════════════════════════════════════════════╗
+║             INFORME META ADS V4: TOLENTINOS              ║
+║                 Fecha: 2025-12-15 19:37                  ║
+╚══════════════════════════════════════════════════════════╝
+
+## GLOSARIO - QUÉ SIGNIFICA CADA MÉTRICA
+============================================================
+
+SCORE (Conversiones Ponderadas)
+   Qué es: Valor TOTAL de todas las acciones del anuncio.
+   Mensajes valen 1.0, clics 0.15, visitas perfil 0.3
+   Mayor score = más resultados generados
+
+SCORE 0-100 (Rendimiento Normalizado)
+   Qué es: Calificación relativa comparando con otros anuncios
+   90-100: HÉROE → Escalar/duplicar
+   70-89: SANO → Mantener
+   40-69: ALERTA → Revisar
+   0-39: MUERTO → Pausar/eliminar
+
+CPA (Costo Por Adquisición)
+   Qué es: Gasto ÷ Score = cuánto pagas por resultado
+   Menor CPA = más eficiente
+
+TENDENCIA (7d vs 30d)
+   EN_ASCENSO: Mejorando (+20%)
+   ESTABLE: Constante (±20%)
+   EN_CAIDA: Bajando (-20%)
+   CRITICO: Caída severa (-50%)
+
+============================================================
+
+## A: RESUMEN DE LA CUENTA
+============================================================
+
+💰 Gasto Total: $1,176,488.01 ARS
+🎯 Conversiones (Score): 3593.0
+📊 CPA Promedio: $327.44
+📈 CPA Mediana: $60.30
+⭐ Score Promedio (0-100): 6.3
+
+Total de anuncios: 33
+Con conversiones: 23
+
+CLASIFICACIÓN DE ANUNCIOS:
+   🏆 Héroes (escalar): 1
+   ✅ Sanos (mantener): 0
+   ⚠️ Alerta (revisar): 24
+   💀 Muertos (pausar): 8
+
+TENDENCIA (últimos 7 días):
+   📈 En ascenso: 7
+   ➡️ Estables: 8
+   📉 En caída: 2
+   🚨 Críticos: 6
+
+
+## B: ACCIONES URGENTES
+============================================================
+
+🛑 PAUSAR INMEDIATAMENTE (7 anuncios):
+----------------------------------------
+   • Dispuestos a ofrecer lo mejor en el mercado:
+     Razón: Anuncio muerto que sigue gastando ($13 en 7d)
+     Acción: Pausar y reasignar presupuesto
+
+   • Tenemos sabores originales propios del buen h
+     Razón: Anuncio muerto que sigue gastando ($327 en 7d)
+     Acción: Pausar y reasignar presupuesto
+
+   • ¿Querés probar nuestro sabor? Acercate a nues
+     Razón: Anuncio muerto que sigue gastando ($37 en 7d)
+     Acción: Pausar y reasignar presupuesto
+
+   • Presupuesto - Leads -> PUB: Fábrica CABA+BSAS
+     Razón: Anuncio muerto que sigue gastando ($25 en 7d)
+     Acción: Pausar y reasignar presupuesto
+
+   • Presupuesto - Leads -> PUB: Fábrica ARG - Cop
+     Razón: Gastó $9,663 sin ninguna conversión
+     Acción: Pausar inmediatamente
+
+   • ¿Creías que no existía el helado perfecto?
+     Razón: Gastó $7,400 sin ninguna conversión
+     Acción: Pausar inmediatamente
+
+   • ¿Querés ofrecer un producto de calidad?
+     Razón: Anuncio muerto que sigue gastando ($10,981 en 7d)
+     Acción: Pausar y reasignar presupuesto
+
+⚠️ REVISAR (2 anuncios):
+----------------------------------------
+   • 💣 Hay SÚPER PROMO 💣
+     Razón: CPA $2,073 es 34.4× la mediana y en caída
+
+   • ¡La calidad que tus clientes esperan, la enco
+     Razón: CPA $2,833 es 47.0× la mediana y en caída
+
+
+
+## C: RANKINGS - LOS MEJORES ANUNCIOS
+============================================================
+
+🌟 TOP HÉROES (Score 0-100)
+----------------------------------------
+  Empieza la temporada perfecta para disfrutar 
+     Score: 100.0/100 | Clasificación: HEROE
+  Sabor, calidad y el producto artesanal que es
+     Score: 28.3/100 | Clasificación: ALERTA
+  Hay tradiciones que están hechas pura y
+     Score: 28.1/100 | Clasificación: ALERTA
+  ¡NUEVA APERTURA!-iam
+     Score: 14.1/100 | Clasificación: ALERTA
+  ¿Querés ofrecer postres ?-ian
+     Score: 5.5/100 | Clasificación: ALERTA
+
+🏆 TOP 5 POR IMPACTO (más conversiones)
+----------------------------------------
+  Empieza la temporada perfecta para disfrutar 
+     Score: 1721.0 | CPA: $30 | ACTIVO
+  Sabor, calidad y el producto artesanal que es
+     Score: 487.0 | CPA: $60 | ACTIVO
+  Hay tradiciones que están hechas pura y
+     Score: 484.0 | CPA: $62 | ACTIVO
+  ¡NUEVA APERTURA!-iam
+     Score: 243.0 | CPA: $20 | ACTIVO
+  ¿Querés ofrecer postres ?-ian
+     Score: 95.0 | CPA: $32 | ACTIVO
+
+⚡ TOP 5 POR EFICIENCIA (menor CPA)
+----------------------------------------
+  ¡NUEVA APERTURA!-iam
+     CPA: $20 (-67% vs mediana) | Score: 243.0
+  Dispuestos a ofrecer lo mejor en el mercado:
+     CPA: $23 (-62% vs mediana) | Score: 4.0
+  ¡El sabor que esperabas ya llegó! 🍦
+     CPA: $24 (-61% vs mediana) | Score: 76.0
+  Tenemos sabores originales propios del buen h
+     CPA: $25 (-58% vs mediana) | Score: 84.0
+  Desde la mano del artesano hasta el riguroso 
+     CPA: $28 (-53% vs mediana) | Score: 2.0
+
+
+## D: ANUNCIOS PARA ESCALAR (DUPLICAR)
+============================================================
+
+CÓMO ESCALAR UN ANUNCIO:
+   1. Duplicar la CONFIGURACIÓN (audiencia, ubicación, puja)
+   2. Cambiar el CREATIVO (nueva imagen/video)
+   3. Mantener presupuesto similar
+
+------------------------------------------------------------
+
+✅ 5 CANDIDATO(S) IDENTIFICADO(S):
+
+==================================================
+🚀 #1: Empieza la temporada perfecta para disfrutar las
+==================================================
+   Score: 1721.0 | Score 0-100: 100.0
+   CPA: $30 (mediana: $60)
+   Tendencia: ESTABLE | Clasificación: HEROE
+
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 1721 conversiones ponderadas
+   ✓ MUY EFICIENTE: CPA $30 (49% menor que mediana)
+   ✓ ACTIVO: 326.0 conversiones en 7 días
+   ✓ CLASIFICADO COMO HÉROE: rendimiento excepcional
+
+==================================================
+🚀 #2: ¡NUEVA APERTURA!-iam
+==================================================
+   Score: 243.0 | Score 0-100: 14.1
+   CPA: $20 (mediana: $60)
+   Tendencia: EN_ASCENSO | Clasificación: ALERTA
+
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 243 conversiones ponderadas
+   ✓ MUY EFICIENTE: CPA $20 (67% menor que mediana)
+   ✓ ACTIVO: 244.0 conversiones en 7 días
+   ✓ TENDENCIA POSITIVA: rendimiento en aumento
+
+==================================================
+🚀 #3: ¿Querés ofrecer postres ?-ian
+==================================================
+   Score: 95.0 | Score 0-100: 5.5
+   CPA: $32 (mediana: $60)
+   Tendencia: EN_ASCENSO | Clasificación: ALERTA
+
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 95 conversiones ponderadas
+   ✓ MUY EFICIENTE: CPA $32 (48% menor que mediana)
+   ✓ ACTIVO: 95.0 conversiones en 7 días
+   ✓ TENDENCIA POSITIVA: rendimiento en aumento
+
+==================================================
+🚀 #4: Tenemos sabores originales propios del buen helado
+==================================================
+   Score: 84.0 | Score 0-100: 4.9
+   CPA: $25 (mediana: $60)
+   Tendencia: CRITICO | Clasificación: MUERTO
+
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 84 conversiones ponderadas
+   ✓ MUY EFICIENTE: CPA $25 (58% menor que mediana)
+   ✓ ACTIVO: 8.0 conversiones en 7 días
+
+==================================================
+🚀 #5: ¡El sabor que esperabas ya llegó! 🍦
+==================================================
+   Score: 76.0 | Score 0-100: 4.4
+   CPA: $24 (mediana: $60)
+   Tendencia: EN_CAIDA | Clasificación: ALERTA
+
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 76 conversiones ponderadas
+   ✓ MUY EFICIENTE: CPA $24 (61% menor que mediana)
+   ✓ ACTIVO: 11.0 conversiones en 7 días
+
+## E: ANOMALÍAS DETECTADAS
+============================================================
+
+🚨 [ALTA] GASTO_SIN_RESULTADOS
+   Anuncio: Presupuesto - Leads -> PUB: Fábrica ARG 
+   Detalle: Gastó $9,663 sin ninguna conversión
+   Acción: Pausar inmediatamente y revisar configuración
+
+🚨 [ALTA] GASTO_SIN_RESULTADOS
+   Anuncio: ¿Creías que no existía el helado perfect
+   Detalle: Gastó $7,400 sin ninguna conversión
+   Acción: Pausar inmediatamente y revisar configuración
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: Dispuestos a ofrecer lo mejor en el merc
+   Detalle: Caída crítica: rendimiento 7d es 0% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: Tenemos sabores originales propios del b
+   Detalle: Caída crítica: rendimiento 7d es 41% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: 💣 Hay SÚPER PROMO 💣
+   Detalle: Caída crítica: rendimiento 7d es 0% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: ¿Querés probar nuestro sabor? Acercate a
+   Detalle: Caída crítica: rendimiento 7d es 0% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: Presupuesto - Leads -> PUB: Fábrica CABA
+   Detalle: Caída crítica: rendimiento 7d es 0% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: ¿Querés ofrecer un producto de calidad?
+   Detalle: Caída crítica: rendimiento 7d es 31% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+
+## F: CONTEXTO HISTÓRICO
+============================================================
+
+SCORE POR MES:
+----------------------------------------
+     SEP: ████████████░░░░░░░░ 1393.0 ↓
+     OCT: ███████████████████░ 2266.6 ↑
+     NOV: ████████████████████ 2305.8 ↑
+
+   Promedio: 1988.5 | Mejor: 2305.8 | Peor: 1393.0
+
+============================================================
+FIN DEL INFORME
+Sistema Meta Ads Analyzer V4
+============================================================

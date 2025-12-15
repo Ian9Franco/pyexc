@@ -1,200 +1,228 @@
-INFORME META ADS: REFRIGERACI
-Fecha: 2025-12-12
-============================================================
+╔══════════════════════════════════════════════════════════╗
+║             INFORME META ADS V4: REFRIGERACI             ║
+║                 Fecha: 2025-12-15 19:37                  ║
+╚══════════════════════════════════════════════════════════╝
 
-## GLOSARIO - QUE SIGNIFICA CADA METRICA
+## GLOSARIO - QUÉ SIGNIFICA CADA MÉTRICA
 ============================================================
 
 SCORE (Conversiones Ponderadas)
-   Qué es: Un número que representa el VALOR TOTAL de todas las
-   acciones que generó el anuncio, no solo la cantidad.
-   
-   Cómo se calcula:
-   - Mensajes iniciados: valen 1.0 (contacto directo = alto valor)
-   - Contactos de mensaje: valen 1.0
-   - Resultados de Meta: valen 1.0
-   - Clics en enlace: valen 0.15 (solo muestran interés)
-   - Visitas al perfil IG: valen 0.3
-   
-   Ejemplo: Un anuncio con 5 mensajes + 20 clics = 5×1 + 20×0.15 = 8 score
+   Qué es: Valor TOTAL de todas las acciones del anuncio.
+   Mensajes valen 1.0, clics 0.15, visitas perfil 0.3
+   Mayor score = más resultados generados
 
-------------------------------------------------------------
+SCORE 0-100 (Rendimiento Normalizado)
+   Qué es: Calificación relativa comparando con otros anuncios
+   90-100: HÉROE → Escalar/duplicar
+   70-89: SANO → Mantener
+   40-69: ALERTA → Revisar
+   0-39: MUERTO → Pausar/eliminar
 
 CPA (Costo Por Adquisición)
-   Qué es: Cuánto pagaste en promedio por cada conversión.
-   Fórmula: Gasto Total ÷ Score
-   
-   Ejemplo: Gastaste $10,000 y tienes score de 8 = CPA de $1,250
-   
-   Interpretación:
-   - CPA BAJO = BUENO (pagas poco por cada resultado)
-   - CPA ALTO = MALO (pagas mucho por cada resultado)
+   Qué es: Gasto ÷ Score = cuánto pagas por resultado
+   Menor CPA = más eficiente
 
-------------------------------------------------------------
-
-MEDIANA CPA
-   Qué es: El CPA 'del medio' de todos tus anuncios.
-   Si ordenas todos los CPA de menor a mayor, la mediana es el del centro.
-   
-   Para qué sirve: Es tu PUNTO DE REFERENCIA.
-   - Si un anuncio tiene CPA < mediana = es más eficiente que la mayoría
-   - Si un anuncio tiene CPA > mediana = es menos eficiente que la mayoría
-
-------------------------------------------------------------
-
-EFICIENCIA (comparación con mediana)
-   MUY EFICIENTE: CPA es menos del 70% de la mediana (excelente)
-   EFICIENTE: CPA es menor que la mediana (bueno)
-   NORMAL: CPA es hasta 50% mayor que mediana (aceptable)
-   CARO: CPA es más de 50% mayor que mediana (revisar)
-
-------------------------------------------------------------
-
-ACTIVIDAD (estado reciente)
-   ACTIVO: El anuncio generó conversiones en los últimos 7 días
-   GASTANDO: Gastó dinero en 7 días pero no generó conversiones
-   INACTIVO: No gastó ni convirtió en los últimos 7 días
+TENDENCIA (7d vs 30d)
+   EN_ASCENSO: Mejorando (+20%)
+   ESTABLE: Constante (±20%)
+   EN_CAIDA: Bajando (-20%)
+   CRITICO: Caída severa (-50%)
 
 ============================================================
 
-## A: RESUMEN DE LA CUENTA (últimos 30 días)
+## A: RESUMEN DE LA CUENTA
 ============================================================
 
-Gasto Total: $58,315.50 ARS
-Conversiones Totales (Score): 28.0
-CPA Promedio: $2,082.70
-CPA Mediana: $2,100.61
+💰 Gasto Total: $44,597.46 ARS
+🎯 Conversiones (Score): 978.8
+📊 CPA Promedio: $45.56
+📈 CPA Mediana: $46.59
+⭐ Score Promedio (0-100): 14.4
 
-Total de anuncios: 6
-Anuncios con conversiones: 3
+Total de anuncios: 9
+Con conversiones: 8
 
-Estado de los anuncios (últimos 7 días):
-   ACTIVOS (convirtiendo): 1
-   GASTANDO (sin convertir): 1
-   INACTIVOS: 4
+CLASIFICACIÓN DE ANUNCIOS:
+   🏆 Héroes (escalar): 1
+   ✅ Sanos (mantener): 0
+   ⚠️ Alerta (revisar): 5
+   💀 Muertos (pausar): 3
+
+TENDENCIA (últimos 7 días):
+   📈 En ascenso: 3
+   ➡️ Estables: 2
+   📉 En caída: 0
+   🚨 Críticos: 3
 
 
-## B: RANKINGS - LOS MEJORES ANUNCIOS
+## B: ACCIONES URGENTES
 ============================================================
 
-[TROFEO] TOP 5 POR IMPACTO (más conversiones)
+🛑 PAUSAR INMEDIATAMENTE (3 anuncios):
 ----------------------------------------
-  Ofrecemos la asistencia técnica que tu negoci...
-     Score: 23.0 | CPA: $2101 | ACTIVO
-  ¡Instalamos un sistema de climatización de fo...
-     Score: 4.0 | CPA: $2278 | GASTANDO
-  🧰 Así fabricamos y montamos una cámara frigor...
-     Score: 1.0 | CPA: $522 | INACTIVO
-  ¡Obra de climatización en Parque Industrial d...
-     Score: 0.0 | CPA: $nan | INACTIVO
-  Lo caro no es el mantenimiento, es la falla....
-     Score: 0.0 | CPA: $nan | INACTIVO
+   • Ofrecemos la asistencia técnica que tu negoci
+     Razón: Anuncio muerto que sigue gastando ($24 en 7d)
+     Acción: Pausar y reasignar presupuesto
 
-[DINERO] TOP 5 POR GASTO (más inversión)
-----------------------------------------
-  Ofrecemos la asistencia técnica que tu negoci...
-     Gasto: $48,314 | CPA: $2101
-  ¡Instalamos un sistema de climatización de fo...
-     Gasto: $9,111 | CPA: $2278
-  🧰 Así fabricamos y montamos una cámara frigor...
-     Gasto: $522 | CPA: $522
-  🧊 Cuando otros tardan en conseguir un repuest...
-     Gasto: $238 | CPA: $nan
-  ¡Obra de climatización en Parque Industrial d...
-     Gasto: $79 | CPA: $nan
+   • ¡Garantizamos un enfriamiento continuo y sin
+     Razón: Anuncio muerto que sigue gastando ($3 en 7d)
+     Acción: Pausar y reasignar presupuesto
 
-[RAYO] TOP 5 POR EFICIENCIA (menor CPA)
-       (Solo anuncios con al menos 1 conversión)
-----------------------------------------
-  🧰 Así fabricamos y montamos una cámara frigor...
-     CPA: $522 (-75% vs mediana) | Score: 1.0
-  Ofrecemos la asistencia técnica que tu negoci...
-     CPA: $2101 (= mediana) | Score: 23.0
-  ¡Instalamos un sistema de climatización de fo...
-     CPA: $2278 (+8% vs mediana) | Score: 4.0
+   • ¡Obra de climatización en Parque Industrial d
+     Razón: Anuncio muerto que sigue gastando ($41 en 7d)
+     Acción: Pausar y reasignar presupuesto
 
 
-## C: ANUNCIOS PARA ESCALAR (DUPLICAR)
+
+## C: RANKINGS - LOS MEJORES ANUNCIOS
 ============================================================
 
-QUE SIGNIFICA 'DUPLICAR UN ANUNCIO':
-   No es copiar el texto o imagen. Es crear un NUEVO ANUNCIO
-   usando los mismos parámetros de segmentación y configuración
-   del anuncio exitoso, pero con creativos frescos (nueva imagen,
-   video o copy) que no esté actualmente en ninguna campaña.
+🌟 TOP HÉROES (Score 0-100)
+----------------------------------------
+  🛠️ ¡Asegurá la continuidad de tu producción!
+     Score: 100.0/100 | Clasificación: HEROE
+  🌡️ Climatización personalizada para tu negoci
+     Score: 13.0/100 | Clasificación: ALERTA
+  no es cuestión de suerte-ian
+     Score: 9.2/100 | Clasificación: ALERTA
+  ¡Obra de climatización en Parque Industrial d
+     Score: 3.3/100 | Clasificación: MUERTO
+  Evitá fallas -ian
+     Score: 1.8/100 | Clasificación: ALERTA
 
-   Esto permite:
-   - Escalar el éxito sin saturar la audiencia con el mismo creativo
-   - Probar nuevas piezas con una configuración que ya funciona
-   - Aumentar el alcance sin competir contigo mismo
+🏆 TOP 5 POR IMPACTO (más conversiones)
+----------------------------------------
+  🛠️ ¡Asegurá la continuidad de tu producción!
+     Score: 755.9 | CPA: $45 | ACTIVO
+  🌡️ Climatización personalizada para tu negoci
+     Score: 98.6 | CPA: $51 | ACTIVO
+  no es cuestión de suerte-ian
+     Score: 69.3 | CPA: $39 | ACTIVO
+  ¡Obra de climatización en Parque Industrial d
+     Score: 25.1 | CPA: $55 | GASTANDO
+  Evitá fallas -ian
+     Score: 13.7 | CPA: $48 | ACTIVO
+
+⚡ TOP 5 POR EFICIENCIA (menor CPA)
+----------------------------------------
+  En Perri trabajamos con empresas-ian
+     CPA: $22 (-53% vs mediana) | Score: 4.6
+  Ofrecemos la asistencia técnica que tu negoci
+     CPA: $24 (-47% vs mediana) | Score: 10.5
+  no es cuestión de suerte-ian
+     CPA: $39 (-15% vs mediana) | Score: 69.3
+  🛠️ ¡Asegurá la continuidad de tu producción!
+     CPA: $45 (-3% vs mediana) | Score: 755.9
+  Evitá fallas -ian
+     CPA: $48 (+3% vs mediana) | Score: 13.7
+
+
+## D: ANUNCIOS PARA ESCALAR (DUPLICAR)
+============================================================
+
+CÓMO ESCALAR UN ANUNCIO:
+   1. Duplicar la CONFIGURACIÓN (audiencia, ubicación, puja)
+   2. Cambiar el CREATIVO (nueva imagen/video)
+   3. Mantener presupuesto similar
 
 ------------------------------------------------------------
 
-CRITERIOS DE SELECCIÓN:
-   1. Score >= 10 (volumen significativo de conversiones)
-   2. CPA <= $2521 (máximo 120% de la mediana $2101)
-   3. Actividad reciente (no anuncios abandonados)
-
-ENCONTRAMOS 1 ANUNCIO(S) PARA ESCALAR:
+✅ 5 CANDIDATO(S) IDENTIFICADO(S):
 
 ==================================================
-[ESCALAR] #1: Ofrecemos la asistencia técnica que tu negocio nec
+🚀 #1: 🛠️ ¡Asegurá la continuidad de tu producción!
 ==================================================
+   Score: 755.9 | Score 0-100: 100.0
+   CPA: $45 (mediana: $47)
+   Tendencia: ESTABLE | Clasificación: HEROE
 
-   MÉTRICAS DEL ANUNCIO:
-   - Score: 23.0 conversiones ponderadas
-   - CPA: $2101 (mediana: $2101)
-   - Eficiencia: ACEPTABLE (100% de la mediana)
-   - Gasto acumulado: $48,314
-   - Actividad: ACTIVO
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 756 conversiones ponderadas
+   ✓ EFICIENTE: CPA $45 (bajo la mediana)
+   ✓ ACTIVO: 143.5 conversiones en 7 días
+   ✓ CLASIFICADO COMO HÉROE: rendimiento excepcional
 
-   POR QUÉ ESCALAR ESTE ANUNCIO:
-   - ALTO VOLUMEN: 23 conversiones ponderadas, es top performer
-   - EFICIENTE: CPA $2101 está por debajo de la mediana ($2101)
-   - SIGUE ACTIVO: Generó 4.0 conversiones en los últimos 7 días
+==================================================
+🚀 #2: no es cuestión de suerte-ian
+==================================================
+   Score: 69.3 | Score 0-100: 9.2
+   CPA: $39 (mediana: $47)
+   Tendencia: EN_ASCENSO | Clasificación: ALERTA
 
-   CÓMO ESCALARLO:
-   1. Ve a Ads Manager y selecciona este anuncio
-   2. Click en 'Duplicar' > 'Duplicar en mismo conjunto'
-   3. En el nuevo anuncio, CAMBIA SOLO el creativo:
-      - Nueva imagen/video que no esté en otras campañas
-      - Puedes probar nuevo copy también
-   4. Mantén la misma audiencia y configuración
-   5. Empieza con presupuesto igual al original
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 69 conversiones ponderadas
+   ✓ EFICIENTE: CPA $39 (bajo la mediana)
+   ✓ ACTIVO: 69.3 conversiones en 7 días
+   ✓ TENDENCIA POSITIVA: rendimiento en aumento
 
+==================================================
+🚀 #3: 🌡️ Climatización personalizada para tu negocio.
+==================================================
+   Score: 98.6 | Score 0-100: 13.0
+   CPA: $51 (mediana: $47)
+   Tendencia: ESTABLE | Clasificación: ALERTA
 
-## D: ACCIONES URGENTES
+   POR QUÉ ESCALAR:
+   ✓ ALTO VOLUMEN: 99 conversiones ponderadas
+   ✓ CPA ACEPTABLE: $51
+   ✓ ACTIVO: 20.7 conversiones en 7 días
+
+==================================================
+🚀 #4: Evitá fallas -ian
+==================================================
+   Score: 13.7 | Score 0-100: 1.8
+   CPA: $48 (mediana: $47)
+   Tendencia: EN_ASCENSO | Clasificación: ALERTA
+
+   POR QUÉ ESCALAR:
+   ✓ BUEN VOLUMEN: 14 conversiones
+   ✓ CPA ACEPTABLE: $48
+   ✓ ACTIVO: 13.7 conversiones en 7 días
+   ✓ TENDENCIA POSITIVA: rendimiento en aumento
+
+==================================================
+🚀 #5: Ofrecemos la asistencia técnica que tu negocio nec
+==================================================
+   Score: 10.5 | Score 0-100: 1.4
+   CPA: $24 (mediana: $47)
+   Tendencia: CRITICO | Clasificación: MUERTO
+
+   POR QUÉ ESCALAR:
+   ✓ BUEN VOLUMEN: 10 conversiones
+   ✓ MUY EFICIENTE: CPA $24 (47% menor que mediana)
+   ✓ ACTIVO: 1.1 conversiones en 7 días
+
+## E: ANOMALÍAS DETECTADAS
 ============================================================
 
-[OK] Sin acciones urgentes.
-    Todos los anuncios están dentro de parámetros aceptables.
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: Ofrecemos la asistencia técnica que tu n
+   Detalle: Caída crítica: rendimiento 7d es 47% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: ¡Garantizamos un enfriamiento continuo y
+   Detalle: Caída crítica: rendimiento 7d es 0% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
+
+🚨 [ALTA] TENDENCIA_CRITICA
+   Anuncio: ¡Obra de climatización en Parque Industr
+   Detalle: Caída crítica: rendimiento 7d es 0% del promedio
+   Acción: Evaluar si pausar o renovar creatividad
 
 
-## E: DETALLE DE TODOS LOS ANUNCIOS
+## F: CONTEXTO HISTÓRICO
 ============================================================
 
-Anuncio | Score | CPA | Eficiencia | Actividad
-----------------------------------------------------------------------
-Ofrecemos la asistencia t... | 23.0 | $2101 | EFICIENTE | ACTIVO
-¡Instalamos un sistema de... | 4.0 | $2278 | NORMAL | GASTANDO
-🧰 Así fabricamos y montam... | 1.0 | $522 | MUY_EFICIENTE | INACTIVO
-¡Obra de climatización en... | 0.0 | N/A | SIN_DATOS | INACTIVO
-Lo caro no es el mantenim... | 0.0 | N/A | SIN_DATOS | INACTIVO
-🧊 Cuando otros tardan en ... | 0.0 | N/A | SIN_DATOS | INACTIVO
-
-
-## F: CONTEXTO HISTÓRICO POR PERÍODO
-============================================================
-
-SCORE TOTAL POR MES:
+SCORE POR MES:
 ----------------------------------------
-     SEP: ████░░░░░░░░░░░░░░░░    7.0 (↓ bajo promedio)
-     OCT: █████░░░░░░░░░░░░░░░    9.0 (↓ bajo promedio)
-     NOV: ████████████████████   35.0 (↑ sobre promedio)
+     SEP: █░░░░░░░░░░░░░░░░░░░   85.5 ↓
+     OCT: ██████░░░░░░░░░░░░░░  281.1 ↓
+     NOV: ████████████████████  925.5 ↑
 
-   Promedio mensual: 17.0
-   Mejor mes: 35.0
-   Peor mes: 7.0
+   Promedio: 430.7 | Mejor: 925.5 | Peor: 85.5
 
-TENDENCIA GENERAL:
-   La cuenta MEJORÓ 400% desde sep hasta nov
+============================================================
+FIN DEL INFORME
+Sistema Meta Ads Analyzer V4
+============================================================

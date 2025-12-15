@@ -1,11 +1,11 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useCallback } from "react"
 import { Upload, FileJson, AlertCircle } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import type { ReportData } from "@/lib/types"
+import { normalizarAnuncios } from "@/lib/normalizers"
 
 interface ReportUploaderProps {
   onDataLoaded: (data: ReportData) => void
@@ -25,21 +25,30 @@ export function ReportUploader({ onDataLoaded }: ReportUploaderProps) {
       }
 
       const reader = new FileReader()
+
       reader.onload = (e) => {
         try {
-          const data = JSON.parse(e.target?.result as string) as ReportData
+          const raw = JSON.parse(e.target?.result as string)
 
-          // Validar estructura basica
-          if (!data.meta || !data.resumen || !data.anuncios) {
+          // Validación mínima
+          if (!raw.meta || !raw.resumen || !Array.isArray(raw.anuncios)) {
             setError("El archivo JSON no tiene la estructura esperada del informe")
             return
           }
 
+          // 🔥 NORMALIZACIÓN CLAVE
+          const data: ReportData = {
+            ...raw,
+            anuncios: normalizarAnuncios(raw.anuncios),
+          }
+
           onDataLoaded(data)
-        } catch {
+        } catch (err) {
+          console.error(err)
           setError("Error al parsear el archivo JSON")
         }
       }
+
       reader.readAsText(file)
     },
     [onDataLoaded],
@@ -78,11 +87,14 @@ export function ReportUploader({ onDataLoaded }: ReportUploaderProps) {
     <div className="flex items-center justify-center min-h-screen p-8">
       <Card className="w-full max-w-lg bg-card border-border">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-semibold text-foreground">Meta Ads Dashboard</CardTitle>
+          <CardTitle className="text-2xl font-semibold text-foreground">
+            Meta Ads Dashboard
+          </CardTitle>
           <CardDescription className="text-muted-foreground">
             Sube el archivo JSON generado por el pipeline para visualizar el informe
           </CardDescription>
         </CardHeader>
+
         <CardContent>
           <div
             onDrop={handleDrop}
@@ -99,12 +111,13 @@ export function ReportUploader({ onDataLoaded }: ReportUploaderProps) {
               onChange={handleInputChange}
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
             />
+
             <div className="flex flex-col items-center gap-4">
               <div
                 className={`
-                p-4 rounded-full transition-colors
-                ${isDragging ? "bg-primary/10" : "bg-secondary"}
-              `}
+                  p-4 rounded-full transition-colors
+                  ${isDragging ? "bg-primary/10" : "bg-secondary"}
+                `}
               >
                 {isDragging ? (
                   <FileJson className="w-8 h-8 text-primary" />
@@ -112,11 +125,14 @@ export function ReportUploader({ onDataLoaded }: ReportUploaderProps) {
                   <Upload className="w-8 h-8 text-muted-foreground" />
                 )}
               </div>
+
               <div>
                 <p className="font-medium text-foreground">
-                  {isDragging ? "Suelta el archivo aqui" : "Arrastra tu archivo JSON"}
+                  {isDragging ? "Suelta el archivo aquí" : "Arrastra tu archivo JSON"}
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">o haz clic para seleccionar</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  o haz clic para seleccionar
+                </p>
               </div>
             </div>
           </div>
@@ -127,14 +143,6 @@ export function ReportUploader({ onDataLoaded }: ReportUploaderProps) {
               <p className="text-sm text-destructive">{error}</p>
             </div>
           )}
-
-          <div className="mt-6 p-4 bg-secondary/50 rounded-lg">
-            <p className="text-xs text-muted-foreground">
-              <strong>Tip:</strong> Ejecuta el pipeline de Python para generar el archivo
-              <code className="mx-1 px-1 py-0.5 bg-background rounded text-xs">cliente-informe.json</code>
-              en la carpeta de informes.
-            </p>
-          </div>
         </CardContent>
       </Card>
     </div>
