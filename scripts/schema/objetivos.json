@@ -1,0 +1,99 @@
+{
+  "_descripcion": "Configuración de detección y análisis por objetivo de campaña",
+  "_version": "4.0",
+
+  "deteccion": {
+    "_nota": "Señales para detectar el objetivo real de una campaña",
+
+    "mensajes": {
+      "columnas_requeridas": ["msg_init", "msg_contacts"],
+      "columnas_opcionales": ["results"],
+      "palabras_clave_objetivo": [
+        "mensajes",
+        "messages",
+        "conversaciones",
+        "whatsapp",
+        "messenger",
+        "instagram direct"
+      ],
+      "prioridad": 1
+    },
+
+    "trafico": {
+      "columnas_requeridas": ["link_clicks"],
+      "columnas_opcionales": ["ctr", "cpc", "ig_profile"],
+      "palabras_clave_objetivo": ["tráfico", "traffic", "clics", "clicks", "visitas", "website"],
+      "prioridad": 2
+    },
+
+    "interaccion": {
+      "columnas_requeridas": ["interactions"],
+      "columnas_opcionales": ["video_views", "thruplay", "ig_profile"],
+      "palabras_clave_objetivo": ["interacción", "engagement", "video", "reproducciones", "likes", "comentarios"],
+      "prioridad": 3
+    },
+
+    "leads": {
+      "columnas_requeridas": ["leads"],
+      "columnas_opcionales": ["cpl", "results"],
+      "palabras_clave_objetivo": ["clientes potenciales", "leads", "lead", "formulario", "form"],
+      "prioridad": 4
+    },
+
+    "ventas": {
+      "columnas_requeridas": ["purchases"],
+      "columnas_opcionales": ["roas", "conversion_value"],
+      "palabras_clave_objetivo": ["ventas", "sales", "compras", "purchases", "conversiones", "ecommerce"],
+      "prioridad": 5
+    }
+  },
+
+  "metricas_clave": {
+    "mensajes": {
+      "primarias": ["msg_init", "msg_contacts", "costo_por_mensaje"],
+      "secundarias": ["results", "reach", "frequency"],
+      "alertas": {
+        "frecuencia_alta": "Audiencia saturada - creatividad desgastada",
+        "costo_alto_sin_mensajes": "Segmentación incorrecta o creatividad poco atractiva",
+        "alcance_alto_conversion_baja": "Mensaje o CTA no efectivo"
+      }
+    },
+
+    "trafico": {
+      "primarias": ["link_clicks", "ctr", "cpc"],
+      "secundarias": ["ig_profile", "reach", "impressions"],
+      "alertas": {
+        "ctr_bajo": "Creatividad poco atractiva o segmentación amplia",
+        "cpc_alto": "Competencia alta o audiencia saturada",
+        "clicks_sin_visitas": "Posibles fake clicks o landing lenta"
+      }
+    },
+
+    "interaccion": {
+      "primarias": ["interactions", "video_views", "thruplay"],
+      "secundarias": ["reach", "frequency", "cpm"],
+      "alertas": {
+        "alcance_sin_interaccion": "Contenido no relevante para la audiencia",
+        "frecuencia_muy_alta": "Audiencia pequeña sobre-expuesta"
+      }
+    },
+
+    "leads": {
+      "primarias": ["leads", "cpl"],
+      "secundarias": ["link_clicks", "results", "ctr"],
+      "alertas": {
+        "clicks_sin_leads": "Formulario muy largo o poco atractivo",
+        "cpl_muy_alto": "Audiencia fría o propuesta poco clara"
+      }
+    },
+
+    "ventas": {
+      "primarias": ["purchases", "roas", "conversion_value"],
+      "secundarias": ["link_clicks", "ctr", "cpc"],
+      "alertas": {
+        "roas_bajo": "Producto/precio no competitivo o audiencia incorrecta",
+        "visitas_sin_compras": "Problema en checkout o confianza"
+      }
+    }
+  }
+}

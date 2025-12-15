@@ -1,0 +1,87 @@
+{
+  "_descripcion": "Mapeo flexible de columnas de Meta Ads. Soporta múltiples idiomas y versiones.",
+  "_version": "4.0",
+
+  "ad_name": ["Nombre del anuncio", "Ad name", "Ad Name", "Nombre de anuncio", "nombre_anuncio"],
+
+  "spend": [
+    "Importe gastado (ARS)",
+    "Importe gastado (USD)",
+    "Importe gastado (MXN)",
+    "Amount spent",
+    "Amount Spent",
+    "Spend",
+    "Gasto",
+    "gasto",
+    "spent"
+  ],
+
+  "results": ["Resultados", "Results", "Result", "Conversiones", "Conversions"],
+
+  "msg_init": [
+    "Conversaciones con mensajes iniciadas",
+    "Messaging conversations started",
+    "Conversations started",
+    "Conversaciones iniciadas",
+    "mensajes_iniciados"
+  ],
+
+  "msg_contacts": ["Contactos de mensajes", "Messaging contacts", "Message contacts", "Contacts", "contactos_mensajes"],
+
+  "link_clicks": ["Clics en el enlace", "Link clicks", "Link Clicks", "Clics", "Clicks", "clics_enlace"],
+
+  "ig_profile": [
+    "Visitas al perfil de Instagram",
+    "Instagram profile visits",
+    "Profile visits",
+    "Visitas al perfil",
+    "visitas_perfil"
+  ],
+
+  "objective": ["Objetivo", "Objective", "Campaign objective", "Objetivo de campaña", "objetivo"],
+
+  "placement": ["Ubicación de la conversión", "Conversion location", "Placement", "Ubicación", "ubicacion"],
+
+  "date_start": ["Inicio del informe", "Reporting starts", "Start date", "Fecha inicio", "fecha_inicio"],
+
+  "date_end": ["Fin del informe", "Reporting ends", "End date", "Fecha fin", "fecha_fin"],
+
+  "reach": ["Alcance", "Reach", "alcance"],
+
+  "impressions": ["Impresiones", "Impressions", "impresiones"],
+
+  "frequency": ["Frecuencia", "Frequency", "frecuencia"],
+
+  "ctr": ["CTR (tasa de clics en el enlace)", "CTR (link click-through rate)", "CTR", "Click-through rate", "ctr"],
+
+  "cpc": ["CPC (costo por clic en el enlace)", "CPC (cost per link click)", "CPC", "Cost per click", "cpc"],
+
+  "cpm": ["CPM (costo por 1.000 impresiones)", "CPM (cost per 1,000 impressions)", "CPM", "cpm"],
+
+  "leads": ["Clientes potenciales", "Leads", "Lead", "leads"],
+
+  "cpl": ["Costo por cliente potencial", "Cost per lead", "CPL", "cpl"],
+
+  "purchases": ["Compras", "Purchases", "Purchase", "compras"],
+
+  "roas": ["ROAS (retorno del gasto en anuncios)", "ROAS", "Return on ad spend", "roas"],
+
+  "conversion_value": [
+    "Valor de conversión de compras",
+    "Purchase conversion value",
+    "Conversion value",
+    "valor_conversion"
+  ],
+
+  "interactions": [
+    "Interacciones con la publicación",
+    "Post interactions",
+    "Interactions",
+    "Interacciones",
+    "interacciones"
+  ],
+
+  "video_views": ["Reproducciones de video", "Video views", "Video plays", "reproducciones"],
+
+  "thruplay": ["ThruPlays", "Thruplay", "ThruPlay", "Videos vistos completos"]
+}

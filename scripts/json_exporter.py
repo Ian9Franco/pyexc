@@ -1,6 +1,6 @@
 """
-Módulo de exportación JSON.
-Genera el archivo JSON estructurado para consumir desde web.
+Módulo de exportación JSON V4.
+Genera el archivo JSON estructurado para consumir desde web/dashboard.
 """
 from datetime import datetime
 import math
@@ -8,32 +8,45 @@ import math
 
 def safe_number(value, default=0):
     """
-    Convierte cualquier NaN, None o valor inválido en 0.
+    Convierte cualquier NaN, None o valor inválido en un valor seguro.
+    Evita errores de serialización JSON.
     """
     if value is None:
         return default
-    if isinstance(value, float) and math.isnan(value):
+    if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
         return default
     return value
 
 
-def limpiar_rank(lista):
+def limpiar_lista(lista):
     """
-    Limpia listas de rankings, reemplazando NaN en cualquier campo por 0.
+    Limpia listas de dicts, reemplazando NaN en cualquier campo.
     """
     lista_limpia = []
     for item in lista:
         nuevo = {}
         for k, v in item.items():
-            nuevo[k] = safe_number(v) if isinstance(v, (float, int)) else v
+            if isinstance(v, (float, int)):
+                nuevo[k] = safe_number(v)
+            elif isinstance(v, list):
+                nuevo[k] = [safe_number(x) if isinstance(x, (float, int)) else x for x in v]
+            else:
+                nuevo[k] = v
         lista_limpia.append(nuevo)
     return lista_limpia
 
 
 def generar_json(cliente, resumen, rankings, candidatos_duplicar,
-                 acciones_urgentes, historico, df, mediana_cpa):
-
+                 acciones_urgentes, anomalias, historico, analisis_objetivo,
+                 df, mediana_cpa):
+    """
+    Genera el JSON completo para el dashboard web.
+    
+    Returns:
+        dict estructurado listo para serializar a JSON
+    """
     fecha = datetime.now().strftime("%Y-%m-%d")
+    hora = datetime.now().strftime("%H:%M")
 
     # Convertir DataFrame a lista de anuncios
     anuncios = []
@@ -41,35 +54,56 @@ def generar_json(cliente, resumen, rankings, candidatos_duplicar,
         anuncios.append({
             "nombre": r["ad_name"],
             "score": safe_number(round(r["score"], 2)),
+            "score_100": safe_number(round(r.get("score_100", 0), 1)),
             "cpa": safe_number(round(safe_number(r.get("cpa")), 2)),
             "gasto": safe_number(round(r["spend"], 2)),
             "eficiencia": r["eficiencia"],
             "actividad": r["actividad"],
+            "tendencia": r.get("tendencia", "SIN_DATOS"),
+            "clasificacion": r.get("clasificacion", "SIN_DATOS"),
             "score_7d": safe_number(round(r.get("score_7d", 0), 2)),
-            "gasto_7d": safe_number(round(r.get("gasto_7d", 0), 2))
+            "gasto_7d": safe_number(round(r.get("gasto_7d", 0), 2)),
+            "objetivo": r.get("objetivo_detectado", "general"),
+            "ratio_tendencia": safe_number(round(r.get("ratio_tendencia", 1.0), 2))
         })
 
     return {
         "meta": {
             "cliente": cliente,
             "fecha": fecha,
-            "version": "2.0"
+            "hora": hora,
+            "version": "4.0",
+            "total_anuncios": len(df)
         },
-        "resumen": resumen,
-        "mediana_cpa": safe_number(round(mediana_cpa, 2)),
+        
+        "resumen": {
+            "gasto_total": safe_number(resumen['gasto_total']),
+            "score_total": safe_number(resumen['score_total']),
+            "cpa_global": safe_number(resumen['cpa_global']),
+            "mediana_cpa": safe_number(round(mediana_cpa, 2)),
+            "score_100_promedio": safe_number(resumen.get('score_100_promedio', 0)),
+            "total_anuncios": resumen['total_anuncios'],
+            "con_conversiones": resumen['con_conversiones'],
+            "actividad": resumen['actividad'],
+            "eficiencia": resumen['eficiencia'],
+            "clasificacion": resumen.get('clasificacion', {}),
+            "tendencia": resumen.get('tendencia', {})
+        },
 
-        # LIMPIEZA DE RANKINGS AQUÍ (Fix definitivo)
         "rankings": {
-            "impacto": limpiar_rank(rankings['impacto']),
-            "volumen": limpiar_rank(rankings['volumen']),
-            "eficiencia": limpiar_rank(rankings['eficiencia'])
+            "impacto": limpiar_lista(rankings.get('impacto', [])),
+            "volumen": limpiar_lista(rankings.get('volumen', [])),
+            "eficiencia": limpiar_lista(rankings.get('eficiencia', [])),
+            "heroes": limpiar_lista(rankings.get('heroes', [])),
+            "tendencia": limpiar_lista(rankings.get('tendencia', []))
         },
 
-        "duplicar": candidatos_duplicar,
+        "duplicar": limpiar_lista(candidatos_duplicar),
 
         "acciones_urgentes": [
             {
                 "tipo": a["tipo"],
+                "prioridad": a.get("prioridad", "MEDIA"),
                 "nombre": a["nombre"],
                 "razon": a["razon"],
                 "accion": a["accion"]
@@ -77,42 +111,61 @@ def generar_json(cliente, resumen, rankings, candidatos_duplicar,
             for a in acciones_urgentes
         ],
 
-        "anuncios": sorted(anuncios, key=lambda x: x["score"], reverse=True),
+        "anomalias": [
+            {
+                "tipo": a["tipo"],
+                "severidad": a["severidad"],
+                "anuncio": a["anuncio"],
+                "valor": safe_number(a["valor"]),
+                "mensaje": a["mensaje"],
+                "accion": a["accion"]
+            }
+            for a in anomalias
+        ],
 
-        "historico": historico,
+        "anuncios": sorted(anuncios, key=lambda x: x["score_100"], reverse=True),
+
+        "historico": limpiar_lista(historico),
+
+        "analisis_por_objetivo": analisis_objetivo,
 
         "glosario": {
             "score": {
                 "nombre": "Score (Conversiones Ponderadas)",
-                "descripcion": "Valor total de acciones: mensajes (1.0), clics (0.15), visitas IG (0.3)",
-                "interpretacion": "Mayor score = mejor rendimiento"
+                "descripcion": "Valor total de acciones ponderadas según importancia",
+                "interpretacion": "Mayor score = mejor rendimiento absoluto"
+            },
+            "score_100": {
+                "nombre": "Score Normalizado (0-100)",
+                "descripcion": "Rendimiento relativo comparado con otros anuncios",
+                "categorias": {
+                    "90-100": "Anuncio Héroe - Escalar",
+                    "70-89": "Anuncio Sano - Mantener",
+                    "40-69": "En Alerta - Revisar",
+                    "0-39": "Para Pausar - Eliminar"
+                }
             },
             "cpa": {
                 "nombre": "CPA (Costo Por Adquisición)",
                 "descripcion": "Gasto ÷ Score = cuánto pagas por cada conversión",
                 "interpretacion": "Menor CPA = más eficiente"
             },
-            "mediana_cpa": {
-                "nombre": "Mediana CPA",
-                "descripcion": "El CPA del anuncio 'del medio' - tu punto de referencia",
-                "interpretacion": "CPA < mediana = mejor que promedio"
-            },
-            "eficiencia": {
-                "nombre": "Eficiencia",
-                "descripcion": "Comparación del CPA vs la mediana",
+            "tendencia": {
+                "nombre": "Tendencia (7d vs 30d)",
                 "categorias": {
-                    "MUY_EFICIENTE": "CPA < 70% de mediana",
-                    "EFICIENTE": "CPA < mediana",
-                    "NORMAL": "CPA < 150% de mediana",
-                    "CARO": "CPA > 150% de mediana"
+                    "EN_ASCENSO": "Rendimiento mejorando (+20%)",
+                    "ESTABLE": "Rendimiento constante (±20%)",
+                    "EN_CAIDA": "Rendimiento bajando (-20%)",
+                    "CRITICO": "Caída severa (-50%)"
                 }
             },
-            "actividad": {
-                "nombre": "Actividad (últimos 7 días)",
+            "clasificacion": {
+                "nombre": "Clasificación de Anuncio",
                 "categorias": {
-                    "ACTIVO": "Generó conversiones en 7 días",
-                    "GASTANDO": "Gastó pero no convirtió en 7 días",
-                    "INACTIVO": "Sin gasto ni conversiones en 7 días"
+                    "HEROE": "Alto score, eficiente, activo → Escalar",
+                    "SANO": "Buen rendimiento general → Mantener",
+                    "ALERTA": "Problemas detectados → Revisar",
+                    "MUERTO": "Sin rendimiento → Pausar"
                 }
             }
         }
